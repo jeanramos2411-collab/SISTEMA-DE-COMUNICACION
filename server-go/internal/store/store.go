@@ -3,6 +3,7 @@ package store
 import (
 	"encoding/json"
 	"errors"
+	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -104,20 +105,39 @@ func (s *Store) Load() error {
 		return err
 	}
 
+	log.Printf("[DEBUG] Buscando config.json en: %s", s.configPath)
+
 	data, err := os.ReadFile(s.configPath)
 	if err != nil {
 		if os.IsNotExist(err) {
+			log.Printf("[INFO] config.json no encontrado, creando con valores por defecto")
 			return s.saveLocked()
 		}
+		log.Printf("[ERROR] Error leyendo config.json: %v", err)
 		return err
 	}
 
+	log.Printf("[INFO] config.json encontrado, cargando configuracion...")
+
 	var loaded Config
 	if err := json.Unmarshal(data, &loaded); err != nil {
+		log.Printf("[ERROR] Error parseando config.json: %v", err)
 		return err
 	}
 
 	s.config = s.mergeDefaults(loaded)
+	
+	// Log de los canales cargados
+	if len(s.config.Channels) > 0 {
+		names := make([]string, 0)
+		for _, ch := range s.config.Channels {
+			if ch.Enabled {
+				names = append(names, ch.Name)
+			}
+		}
+		log.Printf("[INFO] Canales cargados: %v", names)
+	}
+	
 	return nil
 }
 

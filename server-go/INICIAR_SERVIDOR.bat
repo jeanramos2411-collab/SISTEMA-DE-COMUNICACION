@@ -26,12 +26,22 @@ if not exist "data" (
 
 REM Verificar si existe config.json
 if not exist "data\config.json" (
-    echo [INFO] config.json no encontrado.
-    echo [INFO] Se creara con valores por defecto.
+    echo ========================================
+    echo   ADVERTENCIA: config.json no encontrado!
+    echo ========================================
+    echo Se usara configuracion por defecto.
     echo.
+    echo Para importar desde el servidor Python, ejecuta:
+    echo   IMPORTAR_CONFIG.bat
+    echo.
+    echo Presiona cualquier tecla para continuar...
+    pause >nul
+) else (
+    echo [OK] config.json encontrado en data\
 )
 
 REM Mostrar informacion
+echo.
 echo Puertos: 8765 (app Android)  8766 (panel admin)
 echo.
 
