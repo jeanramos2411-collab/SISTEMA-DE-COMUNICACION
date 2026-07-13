@@ -763,7 +763,7 @@ func (c *Client) WritePump() {
 					goto done
 				}
 			}
-		done:
+				done: ;
 
 		case <-ticker.C:
 			c.Conn.SetWriteDeadline(time.Now().Add(writeWait))
