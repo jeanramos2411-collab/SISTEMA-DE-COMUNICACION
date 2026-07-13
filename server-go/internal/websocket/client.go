@@ -29,7 +29,8 @@ type Client struct {
 	deviceID        string
 	mac             string
 	connectedAt     string
-	mu              sync.Mutex  // Mutex para proteger escrituras WebSocket
+	writeChan       chan []byte  // Canal para serializar escrituras
+	doneChan        chan struct{}
 }
 
 // Estado global del servidor - similar a las variables globales de Python
@@ -60,6 +61,8 @@ func (s *ServerState) HandleConnection(conn *websocket.Conn, ip string) {
 		ip:          ip,
 		mac:         utils.LookupMAC(ip),
 		connectedAt: time.Now().UTC().Format(time.RFC3339),
+		writeChan:   make(chan []byte, 256),
+		doneChan:    make(chan struct{}),
 	}
 
 	s.mu.Lock()
@@ -67,6 +70,9 @@ func (s *ServerState) HandleConnection(conn *websocket.Conn, ip string) {
 	s.mu.Unlock()
 
 	log.Printf("[WS] Cliente conectado: %s (%s)", ip, client.sessionID)
+
+	// Iniciar write pump en goroutine separada
+	go s.writePump(client)
 
 	// Loop principal - similar a: async for message in ws:
 	// Configurar ping/pong como hace Python
@@ -114,6 +120,14 @@ func (s *ServerState) HandleConnection(conn *websocket.Conn, ip string) {
 
 // cleanupClient - similar a async def cleanup_client(ws)
 func (s *ServerState) cleanupClient(client *Client) {
+	// Cerrar canales de escritura
+	if client.doneChan != nil {
+		close(client.doneChan)
+	}
+	if client.writeChan != nil {
+		close(client.writeChan)
+	}
+
 	s.mu.Lock()
 	delete(s.clients, client)
 
@@ -396,24 +410,41 @@ func (s *ServerState) handleAudio(sender *Client, audio []byte) {
 	}
 }
 
+// writePump - pump de escritura para serializar mensajes
+func (s *ServerState) writePump(client *Client) {
+	for {
+		select {
+		case msg, ok := <-client.writeChan:
+			if !ok {
+				return
+			}
+			client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
+			if err := client.conn.WriteMessage(websocket.BinaryMessage, msg); err != nil {
+				log.Printf("[WS] Error en writePump: %v", err)
+				return
+			}
+		case <-client.doneChan:
+			return
+		}
+	}
+}
+
 // sendAudioAsync - envía audio sin bloquear (fire-and-forget como Python)
 func (s *ServerState) sendAudioAsync(client *Client, audio []byte) {
-	if client == nil || !s.isOpen(client) {
+	if client == nil || !s.isOpen(client) || client.writeChan == nil {
 		return
 	}
 
-	client.mu.Lock()
-	defer client.mu.Unlock()
-	
-	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
-	if err := client.conn.WriteMessage(websocket.BinaryMessage, audio); err != nil {
-		log.Printf("[WS] Error enviando audio a %s: %v", client.sessionID, err)
+	select {
+	case client.writeChan <- audio:
+	default:
+		// Canal lleno, ignorar
 	}
 }
 
 // sendJSON - envía JSON al cliente directamente (como Python await ws.send)
 func (s *ServerState) sendJSON(client *Client, data map[string]interface{}) {
-	if client == nil || !s.isOpen(client) {
+	if client == nil || !s.isOpen(client) || client.writeChan == nil {
 		return
 	}
 
@@ -423,13 +454,10 @@ func (s *ServerState) sendJSON(client *Client, data map[string]interface{}) {
 		return
 	}
 
-	client.mu.Lock()
-	defer client.mu.Unlock()
-	
-	// Enviar directamente como Python - sin buffering en canales
-	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
-	if err := client.conn.WriteMessage(websocket.TextMessage, msg); err != nil {
-		log.Printf("[WS] Error enviando JSON a %s: %v", client.sessionID, err)
+	select {
+	case client.writeChan <- msg:
+	default:
+		// Canal lleno
 	}
 }
 
@@ -459,16 +487,14 @@ func (s *ServerState) broadcastJSON(channel string, data map[string]interface{},
 
 // sendJSONAsync - envía JSON de forma asíncrona (como asyncio.create_task en Python)
 func (s *ServerState) sendJSONAsync(client *Client, msg []byte) {
-	if client == nil || !s.isOpen(client) {
+	if client == nil || !s.isOpen(client) || client.writeChan == nil {
 		return
 	}
 
-	client.mu.Lock()
-	defer client.mu.Unlock()
-	
-	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
-	if err := client.conn.WriteMessage(websocket.TextMessage, msg); err != nil {
-		log.Printf("[WS] Error en broadcast a %s: %v", client.sessionID, err)
+	select {
+	case client.writeChan <- msg:
+	default:
+		// Canal lleno, ignorar
 	}
 }
 
@@ -549,9 +575,7 @@ func (s *ServerState) KickClient(sessionID string) bool {
 		return false
 	}
 
-	client.mu.Lock()
 	client.conn.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(4000, "Expulsado por administrador"))
-	client.mu.Unlock()
 	return true
 }
 

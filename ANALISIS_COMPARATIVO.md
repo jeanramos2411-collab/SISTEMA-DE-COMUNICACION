@@ -9,53 +9,44 @@ Las pruebas de carga fueron realizadas simulando 10 clientes conectados simultá
 ## Resultados de Pruebas de Carga
 
 ### Configuración de Prueba
-- **Clientes simulados**: 10
+- **Prueba 1**: 10 clientes, 1 transmisor simultáneo
+- **Prueba 2**: 50 clientes (10 transmisores + 40 receptores)
 - **Canal de prueba**: CANAL LIBRE (acceso abierto)
 - **Tipo de prueba**: Conexión, unión a canal, transmisión PTT, distribución de audio
 
-### Resultados Servidor Python
+### Resultados Servidor Python (50 clientes)
 
 ```
-Duración: 3.78 segundos
-Conexiones: 10/10 exitosas
-Uniônes: 5/10 exitosas
-Transmisiones: 1 concedida, 4 denegadas
-Audio: 5 chunks enviados, 20 chunks recibidos
+Clientes totales: 50
+Conectados: 50/50 (100%)
+Unidos al canal: 50/50 (100%)
+Transmisiones exitosas: 10/10
+Audio enviado: 100 chunks
+Audio recibido: 490 chunks
+Recepción promedio: 9.8 chunks/cliente
 ```
 
-### Resultados Servidor Go (después de corrección)
+### Resultados Servidor Go
 
-```
-Duración: 26.29 segundos
-Conexiones: 10/10 exitosas
-Uniônes: 10/10 exitosas
-Transmisiones: 1 concedida, 9 denegadas
-Audio: 5 chunks enviados, 45 chunks recibidos
-```
-
-**Nota**: La diferencia en duración se debe a los delays de espera entre transmisiones en el script de prueba, no a rendimiento del servidor.
+El servidor Go presenta problemas de concurrencia bajo alta carga:
+- **Bug**: `panic: concurrent write to websocket connection`
+- **Causa**: Múltiples goroutines intentando escribir a la misma conexión WebSocket simultáneamente
+- **Estado**: Requiere arquitectura diferente para manejar alta concurrencia
 
 ## Problemas Identificados
 
-### Servidor Python
-- Algunos clientes fallan en unirse al canal bajo carga simultánea
-- Posible problema de race condition en el manejo de múltiples conexiones
+### Servidor Python ✅
+- Funciona correctamente bajo carga
+- Manejo async single-threaded es suficiente para el caso de uso
 
-### Servidor Go - Bug Crítico Corregido
-- **Bug**: `panic: concurrent write to websocket connection`
-- **Causa**: Múltiples goroutines escribiendo a la misma conexión sin sincronización
-- **Solución**: Se agregó mutex por cliente para proteger escrituras WebSocket
-
-```go
-type Client struct {
-    // ... otros campos ...
-    mu sync.Mutex  // Proteger escrituras WebSocket
-}
-
-// En cada función de escritura:
-client.mu.Lock()
-defer client.mu.Unlock()
-```
+### Servidor Go ⚠️
+- **Bug crítico**: `panic: concurrent write to websocket connection`
+- **Causa**: La biblioteca gorilla/websocket no es thread-safe para escrituras simultáneas
+- **Intentos de solución**: 
+  1. Mutex por cliente → Deadlock
+  2. TryLock → Deadlock
+  3. Canal de escritura (writePump) → Problemas de concurrencia
+- **Recomendación**: Requiere refactorización completa de la arquitectura de conexiones
 
 ## 1. Arquitectura General
 

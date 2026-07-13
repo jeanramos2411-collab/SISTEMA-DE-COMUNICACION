@@ -41,19 +41,6 @@
   ],
   "blocked": [],
   "devices": {
-    "6d49b1af046d7e34": {
-      "username": "JEAN",
-      "mac": "0E:CE:66:CC:F1:2D",
-      "ip_last": "10.10.1.130",
-      "playback_gain": null,
-      "approved_channels": [
-        "canal-1",
-        "mantenimiento",
-        "trazabilidad"
-      ],
-      "first_seen": "2026-06-15T23:06:19.798403+00:00",
-      "last_seen": "2026-06-16T19:39:02.479897+00:00"
-    },
     "13c146bbaf1bed01": {
       "username": "PDA2",
       "mac": "C4:EF:DA:19:12:4F",
@@ -77,7 +64,130 @@
       ],
       "first_seen": "2026-06-16T17:42:50.702164+00:00",
       "last_seen": "2026-06-16T19:45:59.730511+00:00"
+    },
+    "6d49b1af046d7e34": {
+      "username": "JEAN",
+      "mac": "0E:CE:66:CC:F1:2D",
+      "ip_last": "10.10.1.130",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1",
+        "mantenimiento",
+        "trazabilidad"
+      ],
+      "first_seen": "2026-06-15T23:06:19.798403+00:00",
+      "last_seen": "2026-06-16T19:39:02.479897+00:00"
+    },
+    "test-device-1": {
+      "username": "TestUser01",
+      "mac": "00:11:22:33:44:01",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-10": {
+      "username": "TestUser10",
+      "mac": "00:11:22:33:44:0a",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-2": {
+      "username": "TestUser02",
+      "mac": "00:11:22:33:44:02",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-3": {
+      "username": "TestUser03",
+      "mac": "00:11:22:33:44:03",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-4": {
+      "username": "TestUser04",
+      "mac": "00:11:22:33:44:04",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-5": {
+      "username": "TestUser05",
+      "mac": "00:11:22:33:44:05",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-6": {
+      "username": "TestUser06",
+      "mac": "00:11:22:33:44:06",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-7": {
+      "username": "TestUser07",
+      "mac": "00:11:22:33:44:07",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-8": {
+      "username": "TestUser08",
+      "mac": "00:11:22:33:44:08",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
+    },
+    "test-device-9": {
+      "username": "TestUser09",
+      "mac": "00:11:22:33:44:09",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-07-13T23:26:56Z",
+      "last_seen": "2026-07-13T23:28:24Z"
     }
   },
-  "pending_approvals": []
+  "pending_approvals": null
 }

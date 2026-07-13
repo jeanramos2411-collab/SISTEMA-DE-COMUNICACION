@@ -1,0 +1,75 @@
+{
+  "server_url": "ws://localhost:8765",
+  "num_channels": 6,
+  "transmitters_per_channel": 1,
+  "receivers_per_channel": 40,
+  "total_clients": 246,
+  "start_time": "2026-07-13T23:36:45.637527",
+  "end_time": "2026-07-13T23:36:58.339030",
+  "duration_seconds": 12.7,
+  "connection_stats": {
+    "total": 246,
+    "successful": 246,
+    "failed": 0
+  },
+  "join_stats": {
+    "total": 246,
+    "successful": 30,
+    "failed": 216
+  },
+  "transmission_stats": {
+    "total": 1,
+    "successful": 0,
+    "denied": 1
+  },
+  "audio_stats": {
+    "chunks_sent": 0,
+    "chunks_received": 0
+  },
+  "channel_stats": {
+    "CANAL LIBRE": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    },
+    "Mantenimiento": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    },
+    "Trazabilidad": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    },
+    "Produccion": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    },
+    "Calidad": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    },
+    "Logistica": {
+      "transmitters": 1,
+      "receivers": 40,
+      "audio_sent": 0,
+      "audio_received": 0,
+      "avg_per_receiver": 0.0
+    }
+  },
+  "success": false,
+  "errors": []
+}

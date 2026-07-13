@@ -46,7 +46,7 @@ class HeavyLoadTester:
         self.transmitters: List[PTTClient] = []
         self.receivers: Dict[str, List[PTTClient]] = {}  # channel -> receivers
         
-        # Generar nombres de canales
+        # Usar canales disponibles del servidor
         self.channels = [f"CANAL-{i+1}" for i in range(num_channels)]
         
         self.results = {
@@ -225,10 +225,27 @@ class HeavyLoadTester:
         self.results["start_time"] = datetime.now().isoformat()
         start = time.time()
 
+        # Canales disponibles en el servidor
+        available_channels = [
+            "CANAL LIBRE", "Mantenimiento", "Trazabilidad", 
+            "Produccion", "Calidad", "Logistica"
+        ]
+        
+        # Canales para la prueba (repetir si es necesario)
+        self.test_channels = []
+        for i in range(self.num_channels):
+            base_channel = available_channels[i % len(available_channels)]
+            if i >= len(available_channels):
+                self.test_channels.append(f"{base_channel}-{i//len(available_channels)+1}")
+            else:
+                self.test_channels.append(base_channel)
+        
+        print(f"[INFO] Canales de prueba: {self.test_channels[:5]}...")
+
         # Crear clientes
         print(f"[1/8] Creando {self.total_clients} clientes...")
         client_id = 1
-        for channel in self.channels:
+        for i, channel in enumerate(self.test_channels):
             # Un transmisor por canal
             for t in range(self.transmitters_per_channel):
                 client = PTTClient(
@@ -307,7 +324,7 @@ class HeavyLoadTester:
 
         # Iniciar todas las transmisiones simultáneamente
         transmission_tasks = []
-        for channel in self.channels:
+        for channel in self.test_channels:
             transmitters_in_channel = [t for t in self.transmitters if t.channel == channel]
             for tx in transmitters_in_channel:
                 if tx.joined:
@@ -340,7 +357,7 @@ class HeavyLoadTester:
         self.results["duration_seconds"] = round(end - start, 2)
 
         # Estadísticas por canal
-        for channel in self.channels:
+        for channel in self.test_channels:
             channel_receivers = self.receivers.get(channel, [])
             total_received = sum(r.audio_chunks_received for r in channel_receivers)
             channel_transmitters = [t for t in self.transmitters if t.channel == channel]
