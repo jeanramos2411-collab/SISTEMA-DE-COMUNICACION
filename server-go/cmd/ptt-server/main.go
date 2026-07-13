@@ -142,15 +142,20 @@ func main() {
 
 func getDataDir() string {
 	if dir := os.Getenv("DATA_DIR"); dir != "" {
+		log.Printf("[DEBUG] DATA_DIR env: %s", dir)
 		return dir
 	}
 	// Usar directorio del ejecutable, no el directorio de trabajo actual
 	execPath, err := os.Executable()
 	if err != nil {
+		log.Printf("[DEBUG] No se pudo obtener ruta del ejecutable, usando: %s", config.DataDir)
 		return config.DataDir
 	}
 	execDir := filepath.Dir(execPath)
-	return filepath.Join(execDir, config.DataDir)
+	dataDir := filepath.Join(execDir, config.DataDir)
+	log.Printf("[DEBUG] Ejecutable: %s", execPath)
+	log.Printf("[DEBUG] Directorio de datos: %s", dataDir)
+	return dataDir
 }
 
 func getStaticDir() string {
