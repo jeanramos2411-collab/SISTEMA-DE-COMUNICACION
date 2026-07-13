@@ -461,7 +461,7 @@ func (h *Hub) ApprovePendingRequest(pendingID string) bool {
 		return false
 	}
 
-	if item.SessionID != "" && item.ChannelName != "" {
+	if item.SessionID != "" {
 		client := h.FindBySession(item.SessionID)
 		if client != nil {
 			h.CompleteJoin(client, item.ChannelName)
@@ -480,6 +480,11 @@ func (h *Hub) RejectPendingRequest(pendingID string) bool {
 		client := h.FindBySession(item.SessionID)
 		if client != nil {
 			client.PendingChannel = ""
+			h.SendJSON(client, map[string]interface{}{
+				"type":    "approval_denied",
+				"channel": item.ChannelName,
+				"message": "Acceso denegado por el administrador",
+			})
 		}
 	}
 	return true
