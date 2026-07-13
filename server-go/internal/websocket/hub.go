@@ -634,6 +634,7 @@ func (h *Hub) broadcastToChannel(channel string, data interface{}, exclude *Clie
 func (h *Hub) SendJSON(client *Client, data interface{}) {
 	msg, err := json.Marshal(data)
 	if err != nil {
+		log.Printf("[WS] Error serializando JSON: %v", err)
 		return
 	}
 	select {
@@ -723,7 +724,18 @@ func (c *Client) WritePump() {
 				return
 			}
 
-			w, err := c.Conn.NextWriter(websocket.BinaryMessage)
+			// Determinar tipo de mensaje: texto (JSON) o binario (audio)
+			// Si el primer byte es '{', '[', o '"', es un mensaje JSON -> TextMessage
+			// De lo contrario es audio binario -> BinaryMessage
+			msgType := websocket.BinaryMessage
+			if len(message) > 0 {
+				firstByte := message[0]
+				if firstByte == '{' || firstByte == '[' || firstByte == '"' {
+					msgType = websocket.TextMessage
+				}
+			}
+
+			w, err := c.Conn.NextWriter(msgType)
 			if err != nil {
 				return
 			}
@@ -731,8 +743,27 @@ func (c *Client) WritePump() {
 
 			n := len(c.Send)
 			for i := 0; i < n; i++ {
-				w.Write([]byte{'\n'})
-				w.Write(<-c.Send)
+				nextMsg := <-c.Send
+				// Verificar tipo del siguiente mensaje
+				nextMsgType := websocket.BinaryMessage
+				if len(nextMsg) > 0 {
+					firstByte := nextMsg[0]
+					if firstByte == '{' || firstByte == '[' || firstByte == '"' {
+						nextMsgType = websocket.TextMessage
+					}
+				}
+				// Si cambia el tipo, cerrar el writer actual
+				if nextMsgType != msgType {
+					w.Close()
+					w, err = c.Conn.NextWriter(nextMsgType)
+					if err != nil {
+						return
+					}
+					msgType = nextMsgType
+				} else {
+					w.Write([]byte{'\n'})
+				}
+				w.Write(nextMsg)
 			}
 
 			if err := w.Close(); err != nil {
