@@ -31,6 +31,7 @@ type Client struct {
 	DeviceID       string
 	MAC            string
 	ConnectedAt    string
+	closed         bool
 }
 
 type Hub struct {
@@ -80,11 +81,11 @@ func (h *Hub) Run() {
 					}
 
 					if speaker, ok := h.ChannelSpeaker[client.Channel]; ok && speaker == client {
-						delete(h.ChannelSpeaker, client)
+						delete(h.ChannelSpeaker, client.Channel)
 						h.broadcastToChannel(client.Channel, map[string]interface{}{
 							"type":     "ptt_ended",
 							"username": client.Username,
-						})
+						}, nil)
 					}
 				}
 			}
@@ -143,7 +144,7 @@ func (h *Hub) ChannelRecipients(channel string, exclude *Client, listenersOnly b
 		if c == exclude {
 			continue
 		}
-		if c != nil && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.Conn != nil && !c.closed {
 			if listenersOnly && c.IsTransmitting {
 				continue
 			}
@@ -164,7 +165,7 @@ func (h *Hub) UsersInChannel(channel string) []string {
 	}
 
 	for c := range members {
-		if c != nil && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.Conn != nil && !c.closed {
 			names = append(names, c.Username)
 		}
 	}
@@ -189,13 +190,13 @@ func (h *Hub) ReconcilePTTState() {
 	defer h.mu.Unlock()
 
 	for channel, speaker := range h.ChannelSpeaker {
-		if _, ok := h.Clients[speaker]; !ok || speaker.Conn.WriteQueue == nil {
+		if _, ok := h.Clients[speaker]; !ok || speaker.closed {
 			delete(h.ChannelSpeaker, channel)
 		}
 	}
 
 	for c := range h.Clients {
-		if c.Conn.WriteQueue == nil && c.IsTransmitting && !h.isActiveSpeakerLocked(c) {
+		if !c.closed && c.IsTransmitting && !h.isActiveSpeakerLocked(c) {
 			c.IsTransmitting = false
 		}
 	}
@@ -231,7 +232,7 @@ func (h *Hub) ClientsSnapshot() []ClientSnapshot {
 
 	var rows []ClientSnapshot
 	for c := range h.Clients {
-		if c == nil || c.Conn == nil || c.Conn.WriteQueue != nil {
+		if c == nil || c.Conn == nil || c.closed {
 			continue
 		}
 		speaking := h.isActiveSpeakerLocked(c)
@@ -256,7 +257,7 @@ func (h *Hub) FindBySession(sessionID string) *Client {
 	defer h.mu.RUnlock()
 
 	for c := range h.Clients {
-		if c != nil && c.SessionID == sessionID && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.SessionID == sessionID && c.Conn != nil && !c.closed {
 			return c
 		}
 	}
@@ -295,12 +296,12 @@ func (h *Hub) CompleteJoin(client *Client, channel string) {
 	gain := h.Store.DevicePlaybackGain(client.DeviceID)
 
 	response := map[string]interface{}{
-		"type":           "joined",
-		"channel":        channel,
-		"channels":       enabled,
-		"users":          h.UsersInChannel(channel),
-		"playback_gain":  gain,
-		"audio_format":   "pcm",
+		"type":          "joined",
+		"channel":       channel,
+		"channels":      enabled,
+		"users":         h.UsersInChannel(channel),
+		"playback_gain": gain,
+		"audio_format":  "pcm",
 	}
 	h.SendJSON(client, response)
 
@@ -348,22 +349,24 @@ func (h *Hub) HandleJoin(client *Client, data map[string]interface{}) {
 
 	channelInfo := h.Store.ChannelByName(channel)
 	if channelInfo != nil && channelInfo.Access == "approval" {
-		if !h.Store.IsDeviceApprovedForChannel(deviceID, channel) {
+		if !h.Store.IsDeviceApprovedForChannel(deviceID, channelInfo.ID) {
 			client.Channel = ""
 			client.PendingChannel = channel
-
 			pending := h.Store.UpsertPending(
-				deviceID, username, client.IP, client.MAC,
-				channelInfo.ID, channel, client.SessionID,
+				deviceID,
+				username,
+				client.IP,
+				client.MAC,
+				channelInfo.ID,
+				channel,
+				client.SessionID,
 			)
-
 			h.SendJSON(client, map[string]interface{}{
-				"type":       "approval_pending",
-				"channel":    channel,
-				"message":    "Esperando aprobacion del administrador para este bloque",
+				"type":      "approval_pending",
+				"channel":   channel,
+				"message":   "Esperando aprobacion del administrador para este bloque",
 				"request_id": pending.ID,
 			})
-
 			log.Printf("Solicitud de acceso: %s -> %s (%s)", username, channel, deviceID)
 			return
 		}
@@ -390,15 +393,10 @@ func (h *Hub) HandlePTTStart(client *Client) {
 	}
 
 	h.mu.Lock()
-	var currentSpeaker *Client
-	if speaker, ok := h.ChannelSpeaker[client.Channel]; ok {
-		if speaker != nil && speaker.Conn != nil && speaker.Conn.WriteQueue == nil {
-			currentSpeaker = speaker
-		}
-	}
+	defer h.mu.Unlock()
 
-	if currentSpeaker != nil && currentSpeaker != client {
-		h.mu.Unlock()
+	currentSpeaker := h.ChannelSpeaker[client.Channel]
+	if currentSpeaker != nil && currentSpeaker != client && !currentSpeaker.closed {
 		h.SendJSON(client, map[string]interface{}{
 			"type":    "ptt_denied",
 			"reason":  "Canal ocupado",
@@ -409,7 +407,6 @@ func (h *Hub) HandlePTTStart(client *Client) {
 
 	h.ChannelSpeaker[client.Channel] = client
 	client.IsTransmitting = true
-	h.mu.Unlock()
 
 	h.SendJSON(client, map[string]interface{}{"type": "ptt_granted"})
 	h.broadcastToChannel(client.Channel, map[string]interface{}{
@@ -436,15 +433,15 @@ func (h *Hub) HandlePTTEnd(client *Client) {
 		h.broadcastToChannel(client.Channel, map[string]interface{}{
 			"type":     "ptt_ended",
 			"username": client.Username,
-		})
+		}, nil)
 	}
 }
 
 func (h *Hub) NotifyUsers(channel string) {
 	users := h.UsersInChannel(channel)
 	response := map[string]interface{}{
-		"type":   "users_update",
-		"users":  users,
+		"type":  "users_update",
+		"users": users,
 	}
 	h.broadcastToChannel(channel, response, nil)
 }
@@ -506,7 +503,7 @@ func (h *Hub) PushDeviceGain(deviceID string) {
 	msg, _ := json.Marshal(payload)
 
 	for c := range h.Clients {
-		if c != nil && c.DeviceID == deviceID && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.DeviceID == deviceID && c.Conn != nil && !c.closed {
 			select {
 			case c.Send <- msg:
 			default:
@@ -531,7 +528,7 @@ func (h *Hub) BroadcastConfigUpdate() {
 	msg, _ := json.Marshal(payload)
 
 	for c := range h.Clients {
-		if c != nil && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.Conn != nil && !c.closed {
 			select {
 			case c.Send <- msg:
 			default:
@@ -593,7 +590,7 @@ func (h *Hub) broadcastAudio(channel string, sender *Client, audio []byte) {
 	}
 
 	for c := range members {
-		if c != sender && c != nil && c.Conn != nil && c.Conn.WriteQueue == nil && !c.IsTransmitting {
+		if c != sender && c != nil && c.Conn != nil && !c.closed && !c.IsTransmitting {
 			select {
 			case c.Send <- audio:
 			default:
@@ -620,7 +617,7 @@ func (h *Hub) broadcastToChannel(channel string, data interface{}, exclude *Clie
 		if c == exclude {
 			continue
 		}
-		if c != nil && c.Conn != nil && c.Conn.WriteQueue == nil {
+		if c != nil && c.Conn != nil && !c.closed {
 			select {
 			case c.Send <- msg:
 			default:
@@ -643,6 +640,7 @@ func (h *Hub) SendJSON(client *Client, data interface{}) {
 func (h *Hub) CloseClient(client *Client, code int, reason string) {
 	h.mu.Lock()
 	delete(h.Clients, client)
+	client.closed = true
 	h.mu.Unlock()
 
 	if client.Channel != "" {
@@ -661,6 +659,7 @@ func (h *Hub) CloseClient(client *Client, code int, reason string) {
 func (h *Hub) RemoveClient(client *Client) {
 	h.mu.Lock()
 	delete(h.Clients, client)
+	client.closed = true
 	if client.Channel != "" {
 		if members, ok := h.ChannelMembers[client.Channel]; ok {
 			delete(members, client)
