@@ -10,9 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 	"syscall"
-	"time"
 
-	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 	"ptt-server/internal/config"
 	ws "ptt-server/internal/websocket"
@@ -27,55 +25,6 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
-func wsHandler(hub *ws.Hub) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("[WS] Nueva conexion WebSocket de: %s", r.RemoteAddr)
-		log.Printf("[WS] Ruta solicitada: %s", r.URL.Path)
-		log.Printf("[WS] Headers: Upgrade=%s, Connection=%s", r.Header.Get("Upgrade"), r.Header.Get("Connection"))
-		
-		conn, err := upgrader.Upgrade(w, r, nil)
-		if err != nil {
-			log.Printf("[WS] Error de upgrade WebSocket: %v", err)
-			return
-		}
-
-		log.Printf("[WS] Upgrade exitoso!")
-
-		ip := ""
-		if remote := conn.RemoteAddr(); remote != nil {
-			addr := remote.String()
-			if idx := strings.LastIndex(addr, ":"); idx > 0 {
-				ip = addr[:idx]
-			}
-			log.Printf("[WS] IP del cliente: %s", ip)
-		}
-
-		mac := ws.LookupMAC(ip)
-		sessionID := generateSessionID()
-
-		client := &ws.Client{
-			Hub:         hub,
-			Conn:        conn,
-			Send:        make(chan []byte, 256),
-			SessionID:   sessionID,
-			Username:    "Usuario",
-			IP:          ip,
-			MAC:         mac,
-			ConnectedAt: time.Now().UTC().Format(time.RFC3339),
-		}
-
-		log.Printf("[WS] Cliente registrado: %s (session: %s)", ip, sessionID)
-		hub.Register <- client
-
-		go client.WritePump()
-		go client.ReadPump()
-	}
-}
-
-func generateSessionID() string {
-	return uuid.New().String()[:8]
-}
-
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("Iniciando servidor PTT...")
@@ -88,8 +37,8 @@ func main() {
 		log.Fatalf("Error cargando configuracion: %v", err)
 	}
 
-	hub := ws.NewHub(s)
-	go hub.Run()
+	// Crear estado del servidor (similar a variables globales en Python)
+	serverState := ws.NewServerState(s)
 
 	mux := http.NewServeMux()
 
@@ -98,27 +47,28 @@ func main() {
 	mux.HandleFunc("/static/", staticHandler(staticDir))
 	mux.HandleFunc("/api/login", loginHandler(s))
 	mux.HandleFunc("/api/public/info", publicInfoHandler(s))
-	mux.HandleFunc("/api/status", statusHandler(s, hub))
-	mux.HandleFunc("/api/settings/gain", setGainHandler(s, hub))
-	mux.HandleFunc("/api/devices/", deviceGainHandler(s, hub))
-	mux.HandleFunc("/api/channels", channelsHandler(s, hub))
-	mux.HandleFunc("/api/channels/", channelHandler(s, hub))
+	mux.HandleFunc("/api/status", statusHandler(s, serverState))
+	mux.HandleFunc("/api/settings/gain", setGainHandler(s, serverState))
+	mux.HandleFunc("/api/devices/", deviceGainHandler(s, serverState))
+	mux.HandleFunc("/api/channels", channelsHandler(s, serverState))
+	mux.HandleFunc("/api/channels/", channelHandler(s, serverState))
 	mux.HandleFunc("/api/blocked", blockedHandler(s))
 	mux.HandleFunc("/api/blocked/", removeBlockHandler(s))
-	mux.HandleFunc("/api/kick/", kickHandler(hub))
-	mux.HandleFunc("/api/approvals/", approvalHandler(hub))
+	mux.HandleFunc("/api/kick/", kickHandler(serverState))
+	mux.HandleFunc("/api/approvals/", approvalHandler(serverState))
 
 	wsAddr := fmt.Sprintf("%s:%d", config.Host, config.Port)
 	adminAddr := fmt.Sprintf("%s:%d", config.Host, config.AdminPort)
 
-	// Crear un ServeMux separado para WebSocket en puerto 8765
-	// La app Android se conecta a ws://IP:8765 (en raíz /)
-	wsMux := http.NewServeMux()
-	wsMux.HandleFunc("/", wsHandler(hub)) // Maneja WebSocket en cualquier ruta (/, /ws, etc.)
+	// Crear servidor WebSocket - patrón similar a Python
+	wsServer := &http.Server{
+		Addr:    wsAddr,
+		Handler: wsHandler(serverState),
+	}
 
 	go func() {
 		log.Printf("WebSocket server.listenAndServe on %s", wsAddr)
-		if err := http.ListenAndServe(wsAddr, wsMux); err != nil {
+		if err := wsServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Error en WebSocket server: %v", err)
 		}
 	}()
@@ -142,10 +92,34 @@ func main() {
 	<-quit
 
 	log.Println("Deteniendo servidor...")
+	wsServer.Close()
 	if err := s.Flush(); err != nil {
 		log.Printf("Error guardando configuracion: %v", err)
 	}
 	log.Println("Servidor detenido")
+}
+
+// wsHandler - maneja conexiones WebSocket (patrón similar a Python async def handler)
+func wsHandler(state *ws.ServerState) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		conn, err := upgrader.Upgrade(w, r, nil)
+		if err != nil {
+			log.Printf("[WS] Error de upgrade WebSocket: %v", err)
+			return
+		}
+
+		// Extraer IP del cliente
+		ip := ""
+		if remote := conn.RemoteAddr(); remote != nil {
+			addr := remote.String()
+			if idx := strings.LastIndex(addr, ":"); idx > 0 {
+				ip = addr[:idx]
+			}
+		}
+
+		// Manejar conexión en goroutine (similar a como Python maneja async)
+		go state.HandleConnection(conn, ip)
+	}
 }
 
 func getDataDir() string {
@@ -249,77 +223,26 @@ func publicInfoHandler(s *store.Store) http.HandlerFunc {
 	}
 }
 
-func statusHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
+func statusHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("[API] GET /api/status desde %s", r.RemoteAddr)
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
-			log.Printf("[API] /api/status - No autorizado (token: %s)", token)
 			http.Error(w, `{"error":"No autorizado"}`, 401)
 			return
 		}
-		log.Printf("[API] /api/status - Autorizado OK")
 
-		onlineByChannel := make(map[string][]map[string]interface{})
-		for _, client := range hub.ClientsSnapshot() {
-			key := ""
-			if client.Channel != "" {
-				key = client.Channel
-			} else if client.PendingChannel != "" {
-				key = client.PendingChannel
-			}
-			if key != "" {
-				clientMap := map[string]interface{}{
-					"session_id":       client.SessionID,
-					"username":         client.Username,
-					"channel":          client.Channel,
-					"pending_channel":  client.PendingChannel,
-					"ip":               client.IP,
-					"mac":              client.MAC,
-					"device_id":        client.DeviceID,
-					"is_transmitting":  client.IsTransmitting,
-					"is_speaking":      client.IsSpeaking,
-					"connected_at":     client.ConnectedAt,
-				}
-				onlineByChannel[key] = append(onlineByChannel[key], clientMap)
-			}
-		}
-
-		groups := s.DevicesByChannel()
-		for i := range groups {
-			if online, ok := onlineByChannel[groups[i].ChannelName]; ok {
-				groups[i].Online = online
-			}
-		}
-
-		cfg := s.GetConfig()
-		response := map[string]interface{}{
-			"clients": hub.ClientsSnapshot(),
-			"config": map[string]interface{}{
-				"playback_gain":     s.PlaybackGain(),
-				"channels":         cfg.Channels,
-				"blocked":          cfg.Blocked,
-				"devices":          s.ListDevices(),
-				"pending_approvals": cfg.PendingApprovals,
-				"groups":           groups,
-			},
-		}
+		clients := state.GetClientsSnapshot()
 
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(response)
+		fmt.Fprintf(w, `{"ok":true,"clients":%s}`, toJSON(clients))
 	}
 }
 
-func setGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
+func setGainHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
 			http.Error(w, `{"error":"No autorizado"}`, 401)
-			return
-		}
-
-		if r.Method != "PUT" {
-			http.Error(w, "Method not allowed", 405)
 			return
 		}
 
@@ -329,20 +252,24 @@ func setGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 			return
 		}
 
-		gain, ok := data["playback_gain"].(float64)
-		if !ok {
-			gain = 3.0
+		var gain *float64
+		if v, ok := data["playback_gain"]; ok && v != nil {
+			if g, ok := v.(float64); ok {
+				gain = &g
+			}
 		}
 
-		s.SetPlaybackGain(gain)
-		hub.BroadcastConfigUpdate()
+		if err := s.SetDefaultPlaybackGain(gain); err != nil {
+			http.Error(w, `{"error":"`+err.Error()+`"}`, 400)
+			return
+		}
 
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"playback_gain":%f}`, gain)
+		fmt.Fprintf(w, `{"playback_gain":%f}`, s.DefaultPlaybackGain())
 	}
 }
 
-func deviceGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
+func deviceGainHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -382,8 +309,6 @@ func deviceGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 				return
 			}
 
-			hub.PushDeviceGain(deviceID)
-
 			w.Header().Set("Content-Type", "application/json")
 			fmt.Fprintf(w, `{"device_id":"%s","playback_gain":%v,"effective_gain":%f}`,
 				deviceID,
@@ -396,7 +321,7 @@ func deviceGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	}
 }
 
-func channelsHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
+func channelsHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -423,8 +348,6 @@ func channelsHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 				return
 			}
 
-			hub.BroadcastConfigUpdate()
-
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(201)
 			json.NewEncoder(w).Encode(map[string]interface{}{"channel": channel})
@@ -435,7 +358,7 @@ func channelsHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	}
 }
 
-func channelHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
+func channelHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -496,8 +419,6 @@ func channelHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 				return
 			}
 
-			hub.BroadcastConfigUpdate()
-
 			w.Header().Set("Content-Type", "application/json")
 			json.NewEncoder(w).Encode(map[string]interface{}{"channel": channel})
 
@@ -510,8 +431,6 @@ func channelHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 				}
 				return
 			}
-
-			hub.BroadcastConfigUpdate()
 
 			w.Header().Set("Content-Type", "application/json")
 			fmt.Fprintf(w, `{"ok":true}`)
@@ -586,12 +505,12 @@ func removeBlockHandler(s *store.Store) http.HandlerFunc {
 	}
 }
 
-func kickHandler(hub *ws.Hub) http.HandlerFunc {
+func kickHandler(state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		sessionID := strings.TrimPrefix(r.URL.Path, "/api/kick/")
 
 		if r.Method == "POST" {
-			if !hub.KickClient(sessionID) {
+			if !state.KickClient(sessionID) {
 				http.Error(w, `{"error":"Usuario no encontrado"}`, 404)
 				return
 			}
@@ -605,7 +524,7 @@ func kickHandler(hub *ws.Hub) http.HandlerFunc {
 	}
 }
 
-func approvalHandler(hub *ws.Hub) http.HandlerFunc {
+func approvalHandler(state *ws.ServerState) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := strings.TrimPrefix(r.URL.Path, "/api/approvals/")
 		parts := strings.SplitN(path, "/", 2)
@@ -619,9 +538,9 @@ func approvalHandler(hub *ws.Hub) http.HandlerFunc {
 
 		var success bool
 		if action == "approve" && r.Method == "POST" {
-			success = hub.ApprovePendingRequest(pendingID)
+			success = state.ApprovePending(pendingID)
 		} else if action == "reject" && r.Method == "POST" {
-			success = hub.RejectPendingRequest(pendingID)
+			success = state.RejectPending(pendingID)
 		} else {
 			http.NotFound(w, r)
 			return
@@ -637,15 +556,6 @@ func approvalHandler(hub *ws.Hub) http.HandlerFunc {
 	}
 }
 
-func adminServer(w http.ResponseWriter, r *http.Request, s *store.Store, hub *ws.Hub, staticDir string) {
-	switch r.URL.Path {
-	case "/", "/admin":
-		http.ServeFile(w, r, staticDir+"/admin.html")
-	default:
-		http.NotFound(w, r)
-	}
-}
-
 func toJSON(v interface{}) string {
 	data, _ := json.Marshal(v)
 	return string(data)
@@ -657,3 +567,4 @@ func pointerToJSON(v *float64) string {
 	}
 	return fmt.Sprintf("%f", *v)
 }
+

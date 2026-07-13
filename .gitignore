@@ -361,3 +361,24 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Binarios compilados
+server-go/ptt-server
+server-go/ptt-server.exe
+
+# Dependencias de Go
+server-go/go.sum
+
+# Datos runtime
+server*/runtime/
+server*/dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
