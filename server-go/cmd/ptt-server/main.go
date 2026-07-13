@@ -103,21 +103,14 @@ func main() {
 	wsAddr := fmt.Sprintf("%s:%d", config.Host, config.Port)
 	adminAddr := fmt.Sprintf("%s:%d", config.Host, config.AdminPort)
 
-	// WebSocket en la raíz (/) para compatibilidad con la app Android
-	// La app se conecta a ws://IP:8765 (sin path)
-	http.HandleFunc("/ws", wsHandler(hub))
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// Redirigir raíz a /ws para WebSocket
-		if r.URL.Path == "/" || r.URL.Path == "" {
-			wsHandler(hub).ServeHTTP(w, r)
-		} else {
-			http.NotFound(w, r)
-		}
-	})
+	// Crear un ServeMux separado para WebSocket en puerto 8765
+	// La app Android se conecta a ws://IP:8765 (en raíz /)
+	wsMux := http.NewServeMux()
+	wsMux.HandleFunc("/", wsHandler(hub)) // Maneja WebSocket en cualquier ruta (/, /ws, etc.)
 
 	go func() {
 		log.Printf("WebSocket server.listenAndServe on %s", wsAddr)
-		if err := http.ListenAndServe(wsAddr, nil); err != nil {
+		if err := http.ListenAndServe(wsAddr, wsMux); err != nil {
 			log.Fatalf("Error en WebSocket server: %v", err)
 		}
 	}()
