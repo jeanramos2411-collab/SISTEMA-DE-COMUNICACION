@@ -15,8 +15,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 	"ptt-server/internal/config"
+	ws "ptt-server/internal/websocket"
 	"ptt-server/internal/store"
-	"ptt-server/internal/websocket"
 )
 
 var upgrader = websocket.Upgrader{
@@ -27,7 +27,7 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
-func wsHandler(hub *websocket.Hub) http.HandlerFunc {
+func wsHandler(hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		conn, err := upgrader.Upgrade(w, r, nil)
 		if err != nil {
@@ -43,10 +43,10 @@ func wsHandler(hub *websocket.Hub) http.HandlerFunc {
 			}
 		}
 
-		mac := websocket.LookupMAC(ip)
+		mac := ws.LookupMAC(ip)
 		sessionID := generateSessionID()
 
-		client := &websocket.Client{
+		client := &ws.Client{
 			Hub:         hub,
 			Conn:        conn,
 			Send:        make(chan []byte, 256),
@@ -80,7 +80,7 @@ func main() {
 		log.Fatalf("Error cargando configuracion: %v", err)
 	}
 
-	hub := websocket.NewHub(s)
+	hub := ws.NewHub(s)
 	go hub.Run()
 
 	mux := http.NewServeMux()
@@ -200,7 +200,7 @@ func publicInfoHandler(s *store.Store) http.HandlerFunc {
 	}
 }
 
-func statusHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
+func statusHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -258,7 +258,7 @@ func statusHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func setGainHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
+func setGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -290,7 +290,7 @@ func setGainHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func deviceGainHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
+func deviceGainHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -344,7 +344,7 @@ func deviceGainHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func channelsHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
+func channelsHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -383,7 +383,7 @@ func channelsHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func channelHandler(s *store.Store, hub *websocket.Hub) http.HandlerFunc {
+func channelHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
@@ -534,7 +534,7 @@ func removeBlockHandler(s *store.Store) http.HandlerFunc {
 	}
 }
 
-func kickHandler(hub *websocket.Hub) http.HandlerFunc {
+func kickHandler(hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		sessionID := strings.TrimPrefix(r.URL.Path, "/api/kick/")
 
@@ -553,7 +553,7 @@ func kickHandler(hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func approvalHandler(hub *websocket.Hub) http.HandlerFunc {
+func approvalHandler(hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := strings.TrimPrefix(r.URL.Path, "/api/approvals/")
 		parts := strings.SplitN(path, "/", 2)
@@ -585,7 +585,7 @@ func approvalHandler(hub *websocket.Hub) http.HandlerFunc {
 	}
 }
 
-func adminServer(w http.ResponseWriter, r *http.Request, s *store.Store, hub *websocket.Hub, staticDir string) {
+func adminServer(w http.ResponseWriter, r *http.Request, s *store.Store, hub *ws.Hub, staticDir string) {
 	switch r.URL.Path {
 	case "/", "/admin":
 		http.ServeFile(w, r, staticDir+"/admin.html")
