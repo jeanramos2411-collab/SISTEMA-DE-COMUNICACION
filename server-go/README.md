@@ -16,32 +16,61 @@ Servidor de comunicación PTT (Push-to-Talk) migrado de Python a Go para mejor r
 
 - Go 1.21 o superior
 
-## Compilación
+## Primeros Pasos
 
-### Windows
+### 1. Compilar el servidor
+
+#### Windows
 ```bash
 compilar.bat
 ```
 
-### Linux / macOS
+#### Linux / macOS
 ```bash
 chmod +x compilar.sh
 ./compilar.sh
 ```
 
-### Compilación manual
-```bash
-go build -o ptt-server ./cmd/ptt-server
+### 2. Configurar (importante)
+
+Si ya tienes el servidor Python configurado con canales personalizados:
+
+1. Copia el archivo `data/config.json` del servidor Python al directorio `data/` del servidor Go
+2. Si el directorio `data/` no existe, se creará automáticamente
+
+```batch
+REM En Windows, desde la carpeta server-go
+copy ..\server\data\config.json data\
 ```
 
-## Ejecución
+### 3. Iniciar el servidor
 
+#### Windows
 ```bash
-# En Windows
-ptt-server.exe
+INICIAR_SERVIDOR.bat
+```
 
-# En Linux/macOS
+O manualmente:
+```bash
+ptt-server.exe
+```
+
+#### Linux/macOS
+```bash
 ./ptt-server
+```
+
+## Configuración de la App Android
+
+En la app Android, configura la IP del servidor Go (la misma que muestra el servidor al iniciar).
+
+## API del Panel Admin
+
+### Autenticación
+
+Todas las peticiones excepto `/api/login` y `/api/public/info` requieren el header:
+```
+X-Admin-Token: <password>
 ```
 
 ## Configuración

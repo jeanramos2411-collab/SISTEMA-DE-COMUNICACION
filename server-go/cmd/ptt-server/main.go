@@ -103,9 +103,20 @@ func main() {
 	wsAddr := fmt.Sprintf("%s:%d", config.Host, config.Port)
 	adminAddr := fmt.Sprintf("%s:%d", config.Host, config.AdminPort)
 
+	// WebSocket en la raíz (/) para compatibilidad con la app Android
+	// La app se conecta a ws://IP:8765 (sin path)
+	http.HandleFunc("/ws", wsHandler(hub))
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// Redirigir raíz a /ws para WebSocket
+		if r.URL.Path == "/" || r.URL.Path == "" {
+			wsHandler(hub).ServeHTTP(w, r)
+		} else {
+			http.NotFound(w, r)
+		}
+	})
+
 	go func() {
 		log.Printf("WebSocket server.listenAndServe on %s", wsAddr)
-		http.Handle("/ws", wsHandler(hub))
 		if err := http.ListenAndServe(wsAddr, nil); err != nil {
 			log.Fatalf("Error en WebSocket server: %v", err)
 		}
@@ -140,7 +151,13 @@ func getDataDir() string {
 	if dir := os.Getenv("DATA_DIR"); dir != "" {
 		return dir
 	}
-	return config.DataDir
+	// Usar directorio del ejecutable, no el directorio de trabajo actual
+	execPath, err := os.Executable()
+	if err != nil {
+		return config.DataDir
+	}
+	execDir := filepath.Dir(execPath)
+	return filepath.Join(execDir, config.DataDir)
 }
 
 func getStaticDir() string {
