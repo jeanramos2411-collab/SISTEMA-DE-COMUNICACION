@@ -4,6 +4,10 @@ echo Compilando servidor PTT...
 
 cd /d "%~dp0"
 
+REM Descargar dependencias y generar go.sum
+echo Descargando dependencias...
+go mod tidy
+
 REM Limpiar builds anteriores
 if exist "ptt-server.exe" del "ptt-server.exe"
 
