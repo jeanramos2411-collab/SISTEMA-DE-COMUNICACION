@@ -174,7 +174,27 @@ func wsIndexHandler(staticDir string) http.HandlerFunc {
 func staticHandler(staticDir string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := strings.TrimPrefix(r.URL.Path, "/static/")
-		http.ServeFile(w, r, staticDir+"/"+path)
+		filePath := staticDir + "/" + path
+
+		// Establecer Content-Type correcto
+		switch {
+		case strings.HasSuffix(path, ".css"):
+			w.Header().Set("Content-Type", "text/css; charset=utf-8")
+		case strings.HasSuffix(path, ".js"):
+			w.Header().Set("Content-Type", "application/javascript; charset=utf-8")
+		case strings.HasSuffix(path, ".html"):
+			w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		case strings.HasSuffix(path, ".json"):
+			w.Header().Set("Content-Type", "application/json")
+		case strings.HasSuffix(path, ".png"):
+			w.Header().Set("Content-Type", "image/png")
+		case strings.HasSuffix(path, ".jpg"), strings.HasSuffix(path, ".jpeg"):
+			w.Header().Set("Content-Type", "image/jpeg")
+		case strings.HasSuffix(path, ".ico"):
+			w.Header().Set("Content-Type", "image/x-icon")
+		}
+
+		http.ServeFile(w, r, filePath)
 	}
 }
 
