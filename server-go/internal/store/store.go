@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"sync"
 	"time"
 
@@ -186,7 +187,7 @@ func (s *Store) saveLocked() error {
 	return nil
 }
 
-func (s *Store) scheduleSave() {
+func (s *Store) scheduleSaveLocked() {
 	s.dirty = true
 	if s.saveTask != nil {
 		s.saveTask.Stop()
@@ -194,6 +195,12 @@ func (s *Store) scheduleSave() {
 	s.saveTask = time.AfterFunc(3*time.Second, func() {
 		s.save()
 	})
+}
+
+func (s *Store) scheduleSave() {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.scheduleSaveLocked()
 }
 
 func (s *Store) Flush() error {
@@ -339,7 +346,7 @@ func (s *Store) TouchDevice(deviceID, username, ip, mac string) Device {
 			FirstSeen: now,
 			LastSeen:  now,
 		}
-		scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+		s.scheduleSaveLocked()
 		return s.config.Devices[deviceID]
 	}
 
@@ -356,17 +363,9 @@ func (s *Store) TouchDevice(deviceID, username, ip, mac string) Device {
 	entry.LastSeen = now
 
 	s.config.Devices[deviceID] = entry
-	scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+	s.scheduleSaveLocked()
 
 	return entry
-}
-
-func scheduleSave(dirty *bool, task **time.Timer, saveFunc func() error) {
-	*dirty = true
-	if *task != nil {
-		(*task).Stop()
-	}
-	*task = time.AfterFunc(3*time.Second, saveFunc)
 }
 
 func (s *Store) RecordDeviceChannelAccess(deviceID, channelName string) {
@@ -389,7 +388,7 @@ func (s *Store) RecordDeviceChannelAccess(deviceID, channelName string) {
 	entry.LastSeen = nowISO()
 	s.config.Devices[deviceID] = entry
 
-	scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+	s.scheduleSaveLocked()
 }
 
 func (s *Store) channelByNameLocked(name string) *Channel {
@@ -554,7 +553,7 @@ func (s *Store) UpsertPending(deviceID, username, ip, mac, channelID, channelNam
 			p.MAC = mac
 			p.SessionID = sessionID
 			p.RequestedAt = nowISO()
-			scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+			s.scheduleSaveLocked()
 			return *p
 		}
 	}
@@ -572,7 +571,7 @@ func (s *Store) UpsertPending(deviceID, username, ip, mac, channelID, channelNam
 	}
 
 	s.config.PendingApprovals = append(s.config.PendingApprovals, entry)
-	scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+	s.scheduleSaveLocked()
 
 	return entry
 }
@@ -607,7 +606,7 @@ func (s *Store) RemovePendingBySession(sessionID string) {
 		}
 	}
 	s.config.PendingApprovals = result
-	scheduleSave(&s.dirty, &s.saveTask, s.saveLocked)
+	s.scheduleSaveLocked()
 }
 
 func (s *Store) ApprovePending(pendingID string) *PendingApproval {
