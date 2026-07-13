@@ -396,15 +396,29 @@ func (s *Store) RecordDeviceChannelAccess(deviceID, channelName string) {
 		return
 	}
 
+	now := nowISO()
 	if _, exists := s.config.Devices[deviceID]; !exists {
 		s.config.Devices[deviceID] = Device{
-			FirstSeen: nowISO(),
-			LastSeen:  nowISO(),
+			FirstSeen: now,
+			LastSeen:  now,
 		}
 	}
 
 	entry := s.config.Devices[deviceID]
-	entry.LastSeen = nowISO()
+
+	// Agregar el canal ID a la lista de canales aprobados (como hace Python)
+	hasChannel := false
+	for _, cid := range entry.ApprovedChans {
+		if cid == ch.ID {
+			hasChannel = true
+			break
+		}
+	}
+	if !hasChannel {
+		entry.ApprovedChans = append(entry.ApprovedChans, ch.ID)
+	}
+
+	entry.LastSeen = now
 	s.config.Devices[deviceID] = entry
 
 	s.scheduleSaveLocked()
@@ -426,6 +440,15 @@ func (s *Store) IsDeviceApprovedForChannel(deviceID, channelName string) bool {
 
 	ch := s.channelByNameLocked(channelName)
 	if ch == nil {
+		return false
+	}
+
+	// Canales abiertos siempre permiten acceso (como en Python)
+	if ch.Access != "approval" {
+		return true
+	}
+
+	if deviceID == "" {
 		return false
 	}
 
