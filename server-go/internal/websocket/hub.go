@@ -725,50 +725,45 @@ func (c *Client) WritePump() {
 			}
 
 			// Determinar tipo de mensaje: texto (JSON) o binario (audio)
-			// Si el primer byte es '{', '[', o '"', es un mensaje JSON -> TextMessage
-			// De lo contrario es audio binario -> BinaryMessage
 			msgType := websocket.BinaryMessage
-			if len(message) > 0 {
-				firstByte := message[0]
-				if firstByte == '{' || firstByte == '[' || firstByte == '"' {
-					msgType = websocket.TextMessage
-				}
+			if len(message) > 0 && (message[0] == '{' || message[0] == '[' || message[0] == '"') {
+				msgType = websocket.TextMessage
 			}
 
-			w, err := c.Conn.NextWriter(msgType)
-			if err != nil {
+			// Escribir el mensaje con el tipo correcto
+			if err := c.Conn.WriteMessage(msgType, message); err != nil {
+				log.Printf("[WS] Error escribiendo mensaje: %v", err)
 				return
 			}
-			w.Write(message)
 
-			n := len(c.Send)
-			for i := 0; i < n; i++ {
-				nextMsg := <-c.Send
-				// Verificar tipo del siguiente mensaje
-				nextMsgType := websocket.BinaryMessage
-				if len(nextMsg) > 0 {
-					firstByte := nextMsg[0]
-					if firstByte == '{' || firstByte == '[' || firstByte == '"' {
-						nextMsgType = websocket.TextMessage
-					}
-				}
-				// Si cambia el tipo, cerrar el writer actual
-				if nextMsgType != msgType {
-					w.Close()
-					w, err = c.Conn.NextWriter(nextMsgType)
-					if err != nil {
+			// Drenar mensajes pendientes del mismo tipo
+			for {
+				select {
+				case nextMsg, ok := <-c.Send:
+					if !ok {
 						return
 					}
-					msgType = nextMsgType
-				} else {
-					w.Write([]byte{'\n'})
+					nextMsgType := websocket.BinaryMessage
+					if len(nextMsg) > 0 && (nextMsg[0] == '{' || nextMsg[0] == '[' || nextMsg[0] == '"') {
+						nextMsgType = websocket.TextMessage
+					}
+					// Si cambia el tipo, volver a encolar y salir
+					if nextMsgType != msgType {
+						select {
+						case c.Send <- nextMsg:
+						default:
+						}
+						goto done
+					}
+					if err := c.Conn.WriteMessage(msgType, nextMsg); err != nil {
+						log.Printf("[WS] Error escribiendo mensaje pendiente: %v", err)
+						return
+					}
+				default:
+					goto done
 				}
-				w.Write(nextMsg)
 			}
-
-			if err := w.Close(); err != nil {
-				return
-			}
+		done:
 
 		case <-ticker.C:
 			c.Conn.SetWriteDeadline(time.Now().Add(writeWait))
