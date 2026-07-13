@@ -29,11 +29,17 @@ var upgrader = websocket.Upgrader{
 
 func wsHandler(hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("[WS] Nueva conexion WebSocket de: %s", r.RemoteAddr)
+		log.Printf("[WS] Ruta solicitada: %s", r.URL.Path)
+		log.Printf("[WS] Headers: Upgrade=%s, Connection=%s", r.Header.Get("Upgrade"), r.Header.Get("Connection"))
+		
 		conn, err := upgrader.Upgrade(w, r, nil)
 		if err != nil {
-			log.Printf("Error de upgrade WebSocket: %v", err)
+			log.Printf("[WS] Error de upgrade WebSocket: %v", err)
 			return
 		}
+
+		log.Printf("[WS] Upgrade exitoso!")
 
 		ip := ""
 		if remote := conn.RemoteAddr(); remote != nil {
@@ -41,6 +47,7 @@ func wsHandler(hub *ws.Hub) http.HandlerFunc {
 			if idx := strings.LastIndex(addr, ":"); idx > 0 {
 				ip = addr[:idx]
 			}
+			log.Printf("[WS] IP del cliente: %s", ip)
 		}
 
 		mac := ws.LookupMAC(ip)
@@ -57,6 +64,7 @@ func wsHandler(hub *ws.Hub) http.HandlerFunc {
 			ConnectedAt: time.Now().UTC().Format(time.RFC3339),
 		}
 
+		log.Printf("[WS] Cliente registrado: %s (session: %s)", ip, sessionID)
 		hub.Register <- client
 
 		go client.WritePump()
