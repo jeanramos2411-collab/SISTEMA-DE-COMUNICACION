@@ -1,0 +1,83 @@
+{
+  "admin_password": "admin123",
+  "playback_gain": 0.5,
+  "channels": [
+    {
+      "id": "canal-1",
+      "name": "CANAL LIBRE",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "mantenimiento",
+      "name": "Mantenimiento",
+      "enabled": true,
+      "access": "approval"
+    },
+    {
+      "id": "trazabilidad",
+      "name": "Trazabilidad",
+      "enabled": true,
+      "access": "approval"
+    },
+    {
+      "id": "produccion",
+      "name": "Produccion",
+      "enabled": true,
+      "access": "approval"
+    },
+    {
+      "id": "calidad",
+      "name": "Calidad",
+      "enabled": true,
+      "access": "approval"
+    },
+    {
+      "id": "logistica",
+      "name": "Logistica",
+      "enabled": true,
+      "access": "approval"
+    }
+  ],
+  "blocked": [],
+  "devices": {
+    "6d49b1af046d7e34": {
+      "username": "JEAN",
+      "mac": "0E:CE:66:CC:F1:2D",
+      "ip_last": "10.10.1.130",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1",
+        "mantenimiento",
+        "trazabilidad"
+      ],
+      "first_seen": "2026-06-15T23:06:19.798403+00:00",
+      "last_seen": "2026-06-16T19:39:02.479897+00:00"
+    },
+    "13c146bbaf1bed01": {
+      "username": "PDA2",
+      "mac": "C4:EF:DA:19:12:4F",
+      "ip_last": "10.10.1.198",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1",
+        "mantenimiento",
+        "trazabilidad"
+      ],
+      "first_seen": "2026-06-15T23:06:39.069538+00:00",
+      "last_seen": "2026-06-16T19:39:02.568121+00:00"
+    },
+    "197b93909e19c438": {
+      "username": "Kelvy",
+      "mac": "98:0D:6F:78:49:31",
+      "ip_last": "10.10.1.152",
+      "playback_gain": null,
+      "approved_channels": [
+        "canal-1"
+      ],
+      "first_seen": "2026-06-16T17:42:50.702164+00:00",
+      "last_seen": "2026-06-16T19:45:59.730511+00:00"
+    }
+  },
+  "pending_approvals": []
+}
