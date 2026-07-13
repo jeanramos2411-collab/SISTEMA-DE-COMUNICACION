@@ -187,7 +187,7 @@ func wsIndexHandler(staticDir string) http.HandlerFunc {
 func staticHandler(staticDir string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := strings.TrimPrefix(r.URL.Path, "/static/")
-		filePath := staticDir + "/" + path
+		filePath := filepath.Join(staticDir, path)
 
 		// Establecer Content-Type correcto
 		switch {
@@ -207,6 +207,7 @@ func staticHandler(staticDir string) http.HandlerFunc {
 			w.Header().Set("Content-Type", "image/x-icon")
 		}
 
+		log.Printf("[DEBUG] Sirviendo archivo: %s", filePath)
 		http.ServeFile(w, r, filePath)
 	}
 }

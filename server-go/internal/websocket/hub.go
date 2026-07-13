@@ -3,6 +3,7 @@ package websocket
 import (
 	"encoding/json"
 	"log"
+	"strings"
 	"sync"
 	"time"
 
@@ -543,7 +544,10 @@ func (h *Hub) BroadcastConfigUpdate() {
 }
 
 func (h *Hub) HandleMessage(client *Client, message []byte) {
+	log.Printf("[WS] Mensaje recibido de %s: tipo=%v, len=%d", client.SessionID, isBinaryMessage(message), len(message))
+	
 	if isBinaryMessage(message) {
+		log.Printf("[WS] %s: Procesando como mensaje binario (audio)", client.SessionID)
 		if client.Channel != "" && client.IsTransmitting && h.IsActiveSpeaker(client) {
 			h.broadcastAudio(client.Channel, client, message)
 		}
@@ -552,6 +556,7 @@ func (h *Hub) HandleMessage(client *Client, message []byte) {
 
 	var data map[string]interface{}
 	if err := json.Unmarshal(message, &data); err != nil {
+		log.Printf("[WS] %s: JSON invalido: %v", client.SessionID, err)
 		h.SendJSON(client, map[string]interface{}{
 			"type":    "error",
 			"message": "JSON invalido",
@@ -560,16 +565,21 @@ func (h *Hub) HandleMessage(client *Client, message []byte) {
 	}
 
 	msgType := getString(data, "type")
+	log.Printf("[WS] %s: Mensaje JSON recibido: type='%s'", client.SessionID, msgType)
+	
 	switch msgType {
 	case "join":
 		h.HandleJoin(client, data)
 	case "ptt_start":
+		log.Printf("[WS] %s: Procesando ptt_start, channel='%s'", client.SessionID, client.Channel)
 		h.HandlePTTStart(client)
 	case "ptt_end":
 		h.HandlePTTEnd(client)
 	case "ping":
+		log.Printf("[WS] %s: Respondiendo pong", client.SessionID)
 		h.SendJSON(client, map[string]interface{}{"type": "pong"})
 	default:
+		log.Printf("[WS] %s: Tipo desconocido: %s", client.SessionID, msgType)
 		h.SendJSON(client, map[string]interface{}{
 			"type":    "error",
 			"message": "Tipo desconocido: " + msgType,
@@ -587,46 +597,58 @@ func isBinaryMessage(message []byte) bool {
 
 func (h *Hub) broadcastAudio(channel string, sender *Client, audio []byte) {
 	h.mu.RLock()
-	defer h.mu.RUnlock()
-
 	members, ok := h.ChannelMembers[channel]
 	if !ok {
+		h.mu.RUnlock()
 		return
 	}
 
+	// Crear copia de los clientes para evitar iterar con lock
+	var recipients []*Client
 	for c := range members {
 		if c != sender && c != nil && c.Conn != nil && !c.closed && !c.IsTransmitting {
-			select {
-			case c.Send <- audio:
-			default:
-			}
+			recipients = append(recipients, c)
+		}
+	}
+	h.mu.RUnlock()
+
+	// Enviar audio sin mantener el lock
+	for _, c := range recipients {
+		select {
+		case c.Send <- audio:
+		default:
+			// Canal lleno, descartar mensaje de audio (evita bloquear al hablante)
 		}
 	}
 }
 
 func (h *Hub) broadcastToChannel(channel string, data interface{}, exclude *Client) {
-	h.mu.RLock()
-	defer h.mu.RUnlock()
-
 	msg, err := json.Marshal(data)
 	if err != nil {
 		return
 	}
 
+	h.mu.RLock()
 	members, ok := h.ChannelMembers[channel]
 	if !ok {
+		h.mu.RUnlock()
 		return
 	}
 
+	// Crear copia de clientes para no mantener lock mientras se envía
+	var recipients []*Client
 	for c := range members {
-		if c == exclude {
-			continue
+		if c != exclude && c != nil && c.Conn != nil && !c.closed {
+			recipients = append(recipients, c)
 		}
-		if c != nil && c.Conn != nil && !c.closed {
-			select {
-			case c.Send <- msg:
-			default:
-			}
+	}
+	h.mu.RUnlock()
+
+	// Enviar sin mantener el lock
+	for _, c := range recipients {
+		select {
+		case c.Send <- msg:
+		default:
 		}
 	}
 }
@@ -690,17 +712,28 @@ func (c *Client) ReadPump() {
 	}()
 
 	c.Conn.SetReadLimit(maxMessageSize)
-	c.Conn.SetReadDeadline(time.Now().Add(pongWait))
+	// Usar un deadline más largo para evitar desconexiones por timeout
+	// El servidor envía pings y espera pongs, pero no queremos cerrar
+	// la conexión si el cliente está ocupado transmitiendo audio
+	c.Conn.SetReadDeadline(time.Now().Add(120 * time.Second))
 	c.Conn.SetPongHandler(func(string) error {
-		c.Conn.SetReadDeadline(time.Now().Add(pongWait))
+		// Extender el deadline cada vez que recibimos un pong
+		c.Conn.SetReadDeadline(time.Now().Add(120 * time.Second))
 		return nil
 	})
 
 	for {
 		_, message, err := c.Conn.ReadMessage()
 		if err != nil {
+			// Verificar si es un error de timeout (deadline exceeded)
+			if strings.Contains(err.Error(), "timeout") || strings.Contains(err.Error(), "deadline") {
+				log.Printf("[WS] Timeout de lectura para cliente %s, reintentando...", c.SessionID)
+				// Extender el deadline y continuar
+				c.Conn.SetReadDeadline(time.Now().Add(120 * time.Second))
+				continue
+			}
 			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
-				log.Printf("Error de lectura: %v", err)
+				log.Printf("[WS] Error de lectura para %s: %v", c.SessionID, err)
 			}
 			break
 		}
