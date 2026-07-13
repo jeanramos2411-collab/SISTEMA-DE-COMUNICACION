@@ -213,6 +213,7 @@ func staticHandler(staticDir string) http.HandlerFunc {
 
 func loginHandler(s *store.Store) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("[API] POST /api/login desde %s", r.RemoteAddr)
 		if r.Method != "POST" {
 			http.Error(w, "Method not allowed", 405)
 			return
@@ -220,16 +221,20 @@ func loginHandler(s *store.Store) http.HandlerFunc {
 
 		var data map[string]interface{}
 		if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
+			log.Printf("[API] /api/login - JSON invalido: %v", err)
 			http.Error(w, "Invalid JSON", 400)
 			return
 		}
 
 		password, _ := data["password"].(string)
+		log.Printf("[API] /api/login - Intentando password: %s", password)
 		if !s.VerifyPassword(password) {
+			log.Printf("[API] /api/login - Clave incorrecta")
 			http.Error(w, `{"error":"Clave incorrecta"}`, 403)
 			return
 		}
 
+		log.Printf("[API] /api/login - Login exitoso!")
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"ok":true,"token":"%s"}`, password)
 	}
@@ -245,11 +250,14 @@ func publicInfoHandler(s *store.Store) http.HandlerFunc {
 
 func statusHandler(s *store.Store, hub *ws.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("[API] GET /api/status desde %s", r.RemoteAddr)
 		token := r.Header.Get("X-Admin-Token")
 		if !s.VerifyPassword(token) {
+			log.Printf("[API] /api/status - No autorizado (token: %s)", token)
 			http.Error(w, `{"error":"No autorizado"}`, 401)
 			return
 		}
+		log.Printf("[API] /api/status - Autorizado OK")
 
 		onlineByChannel := make(map[string][]map[string]interface{})
 		for _, client := range hub.ClientsSnapshot() {
