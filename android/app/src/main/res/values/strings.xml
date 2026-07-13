@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="app_name">PTT Comunicacion</string>
+
+    <string name="server_ip">IP del servidor WiFi</string>
+
+    <string name="username">Su nombre</string>
+
+    <string name="channel_label">Bloque de trabajo</string>
+
+    <string name="connect">Conectar al canal</string>
+
+    <string name="disconnect">Desconectar</string>
+
+    <string name="status_disconnected">Desconectado</string>
+
+    <string name="status_connecting">Conectando...</string>
+
+    <string name="status_connected">Conectado a %1$s</string>
+
+    <string name="status_reconnecting">Reconectando...</string>
+
+    <string name="status_reconnecting_attempt">Reconectando (intento %1$d)...</string>
+
+    <string name="status_no_network">Sin conexion WiFi</string>
+
+    <string name="users_in_channel">Usuarios en el canal:</string>
+
+    <string name="ptt_hold">MANTENER\nPARA HABLAR</string>
+
+    <string name="ptt_active">TRANSMITIENDO</string>
+
+    <string name="ptt_listening">Escuchando: %1$s</string>
+
+    <string name="permission_required">Se necesita permiso de microfono</string>
+
+    <string name="error_connection">Error de conexion</string>
+
+    <string name="error_connect_timeout">Tiempo de conexion agotado</string>
+
+    <string name="error_reconnect_failed">No se pudo reconectar al servidor</string>
+
+    <string name="channel_busy">Canal ocupado: %1$s</string>
+
+    <string name="notification_channel_name">Comunicacion PTT</string>
+
+    <string name="notification_channel_desc">Mantiene la conexion activa en segundo plano</string>
+
+    <string name="notification_title">Conectado: %1$s</string>
+
+    <string name="notification_listening">Escuchando el canal</string>
+
+    <string name="notification_speaking">Hablando: %1$s</string>
+    <string name="notification_ptt_talk">TOCAR PARA HABLAR</string>
+    <string name="notification_ptt_stop">TOCAR PARA DETENER</string>
+    <string name="status_waiting_approval">Esperando aprobacion: %1$s</string>
+    <string name="volume_ptt_hint">Pantalla apagada: mantenga VOLUMEN ABAJO para hablar. Si no responde, desactive optimizacion de bateria para esta app.</string>
+
+    <string name="verify_server">Verificar servidor</string>
+    <string name="verify_server_hint">Verifique el servidor para cargar los bloques disponibles.</string>
+    <string name="verify_server_ok">Servidor verificado · %1$d bloques</string>
+    <string name="verify_server_loading">Verificando servidor...</string>
+    <string name="verify_server_required">Verifique el servidor antes de conectar</string>
+    <string name="channels_updating">Actualizando bloques...</string>
+    <string name="channels_placeholder">Verifique el servidor primero</string>
+    <string name="auto_volume_control">Control automático de volumen (máximo)</string>
+    <string name="volume_key_ptt_enabled">PTT por volumen/sacudida (pantalla apagada)</string>
+</resources>
+

@@ -1,0 +1,16 @@
+# Python portable y dependencias (generados por empaquetar_para_copia.bat)
+runtime/python/
+runtime/libs/
+runtime/venv/
+runtime/*.zip
+runtime/get-pip.py
+
+# Paquete de distribucion
+dist/
+
+# Entorno antiguo (ya no se usa)
+venv/
+
+# Cache
+__pycache__/
+*.pyc

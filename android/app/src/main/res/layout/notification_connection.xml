@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/notification_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#DE000000"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notification_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#99000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/notification_ptt_button"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_notification_ptt_button"
+        android:gravity="center"
+        android:text="@string/notification_ptt_talk"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:elevation="4dp" />
+
+    <TextView
+        android:id="@+id/notification_disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/disconnect"
+        android:textColor="#99000000"
+        android:textSize="12sp" />
+
+</LinearLayout>

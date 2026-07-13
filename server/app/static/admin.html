@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel PTT Comunicacion</title>
+  <link rel="stylesheet" href="/static/admin.css" />
+</head>
+<body>
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+
+  <div id="loginView" class="login-shell">
+    <div class="login-card">
+      <div class="brand-mark">PTT</div>
+      <h1>Panel de administracion</h1>
+      <p class="login-sub">Control del servidor WiFi de comunicacion</p>
+      <label class="field-label" for="passwordInput">Clave de administrador</label>
+      <input id="passwordInput" type="password" placeholder="Introduzca su clave" autocomplete="current-password" />
+      <button id="loginBtn" class="btn btn-primary btn-block">Entrar al panel</button>
+      <p id="loginError" class="error" role="alert"></p>
+      <p class="hint">Clave por defecto: <code>admin123</code></p>
+    </div>
+  </div>
+
+  <div id="appView" class="hidden">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="brand-mark sm">PTT</span>
+        <div>
+          <h1>Administracion</h1>
+          <p id="liveStatus" class="live-status">Conectando...</p>
+        </div>
+      </div>
+      <div class="topbar-stats">
+        <div class="stat-chip">
+          <span class="stat-label">En linea</span>
+          <strong id="statOnline">0</strong>
+        </div>
+        <div class="stat-chip warn" id="statPendingChip">
+          <span class="stat-label">Pendientes</span>
+          <strong id="statPending">0</strong>
+        </div>
+        <div class="stat-chip talk" id="statTalkingChip" hidden>
+          <span class="stat-label">Hablando</span>
+          <strong id="statTalking">0</strong>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="refreshBtn" class="btn btn-ghost" title="Actualizar ahora">↻</button>
+        <button id="logoutBtn" class="btn btn-ghost">Salir</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <p class="section-note">Solo lectura en vivo cada 3 s. Ver este panel no afecta el audio PTT (puerto 8765). Solo al guardar volumen o bloques se notifica a los dispositivos.</p>
+
+      <section class="card card-alert" id="pendingSection">
+        <div class="card-head">
+          <div>
+            <h2>Solicitudes de acceso</h2>
+            <p class="desc">Aparecen aqui automaticamente cuando un dispositivo pide entrar a un bloque con aprobacion.</p>
+          </div>
+          <span id="pendingBadge" class="pill pill-warn hidden">0 nuevas</span>
+        </div>
+        <ul id="pendingList" class="list pending-list"></ul>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="card">
+          <div class="card-head">
+            <h2>Conectados ahora</h2>
+          </div>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Bloque</th>
+                  <th>IP</th>
+                  <th>MAC / ID</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="clientsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Volumen global</h2>
+            <p class="desc inline">Por defecto si el dispositivo no tiene volumen propio.</p>
+          </div>
+          <div class="gainRow">
+            <input id="gainSlider" type="range" min="0.5" max="6" step="0.1" />
+            <strong id="gainValue" class="gain-value">3.0x</strong>
+            <button id="saveGainBtn" class="btn btn-primary">Guardar</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Bloques de trabajo</h2>
+        </div>
+        <div class="addRow">
+          <input id="newChannelInput" type="text" placeholder="Nombre del nuevo bloque..." />
+          <select id="newChannelAccess">
+            <option value="open">Libre</option>
+            <option value="approval">Requiere aprobacion</option>
+          </select>
+          <button id="addChannelBtn" class="btn btn-primary">Agregar</button>
+        </div>
+        <ul id="channelsList" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Dispositivos por bloque</h2>
+          <p class="desc inline">Quienes tienen acceso aprobado a cada grupo.</p>
+        </div>
+        <div id="groupsView" class="groups-grid"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Volumen por dispositivo</h2>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>ID dispositivo</th>
+                <th>IP</th>
+                <th>Bloques aprobados</th>
+                <th>Volumen</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="devicesBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Personas bloqueadas</h2>
+        </div>
+        <div class="addRow blockRow">
+          <select id="blockType">
+            <option value="username">Por nombre</option>
+            <option value="device_id">Por ID dispositivo</option>
+            <option value="ip">Por IP</option>
+          </select>
+          <input id="blockValue" type="text" placeholder="Valor..." />
+          <input id="blockReason" type="text" placeholder="Motivo (opcional)" />
+          <button id="addBlockBtn" class="btn btn-danger">Bloquear</button>
+        </div>
+        <ul id="blockedList" class="list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/admin.js"></script>
+</body>
+</html>

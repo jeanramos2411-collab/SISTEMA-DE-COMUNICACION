@@ -1,0 +1,50 @@
+PTT COMUNICACION - SERVIDOR WiFi
+================================
+
+ESTRUCTURA DE CARPETAS
+----------------------
+server/
+  INICIAR_SERVIDOR.bat   <- Doble clic para arrancar
+  abrir_panel.bat        <- Abre el panel admin en el navegador
+  abrir_firewall.bat     <- Ejecutar UNA VEZ como administrador
+  ver_ip.bat             <- Muestra la IP de esta PC
+  empaquetar_para_copia.bat  <- Crea carpeta lista para otra PC
+
+  app/                   <- Codigo del servidor (no editar salvo que sepa)
+  data/                  <- Configuracion (config.json, bloques, usuarios)
+  runtime/               <- Python y librerias (se crea al empaquetar)
+  dist/                  <- Paquete generado para copiar
+
+
+PRIMER USO EN ESTA PC
+---------------------
+1. Ejecute INICIAR_SERVIDOR.bat (repara Python solo si falta; necesita internet la 1.a vez)
+   - Si falla: ejecute instalar_runtime.bat
+   - Alternativa: empaquetar_para_copia.bat (genera tambien dist\PTT-Servidor)
+2. Ejecute abrir_firewall.bat como Administrador
+3. Ejecute abrir_panel.bat
+4. Clave panel: admin123 (cambiar en data\config.json)
+
+
+LLEVAR A OTRA PC / SERVIDOR
+---------------------------
+1. En esta PC ejecute empaquetar_para_copia.bat
+2. Copie la carpeta dist\PTT-Servidor a la otra maquina (USB, red, etc.)
+3. En la otra PC:
+   - abrir_firewall.bat (como Administrador, una vez)
+   - INICIAR_SERVIDOR.bat (dejar abierta la ventana)
+   - abrir_panel.bat
+4. En los celulares Android ponga la IP de ESA PC (ver_ip.bat)
+
+
+PUERTOS
+-------
+8765 = App Android PTT
+8766 = Panel de administracion web
+
+
+NOTAS
+-----
+- No copie la carpeta venv antigua; use runtime\ generado por empaquetar.
+- data\config.json guarda bloques, volumen, bloqueos y aprobaciones.
+- Para respaldar: copie la carpeta data\ completa.

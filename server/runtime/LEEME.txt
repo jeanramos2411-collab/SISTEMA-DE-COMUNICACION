@@ -1,0 +1,1 @@
+Portable runtime folder. Run empaquetar_para_copia.bat to populate.
