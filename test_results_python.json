@@ -1,0 +1,171 @@
+{
+  "server_url": "ws://localhost:8765",
+  "num_clients": 10,
+  "channel": "CANAL LIBRE",
+  "start_time": "2026-07-13T23:29:04.247673",
+  "end_time": "2026-07-13T23:29:08.026195",
+  "duration_seconds": 3.78,
+  "connection_stats": {
+    "total_attempts": 10,
+    "successful": 10,
+    "failed": 0
+  },
+  "join_stats": {
+    "total_attempts": 10,
+    "successful": 5,
+    "failed": 5
+  },
+  "transmission_stats": {
+    "total_transmissions": 5,
+    "successful": 1,
+    "denied": 4
+  },
+  "audio_stats": {
+    "total_chunks_sent": 5,
+    "total_chunks_received": 20
+  },
+  "client_details": [
+    {
+      "id": 1,
+      "username": "TestUser01",
+      "connected": false,
+      "joined": false,
+      "channel": "CANAL LIBRE",
+      "is_transmitting": false,
+      "session_id": "",
+      "audio_chunks_sent": 5,
+      "messages_received": 0,
+      "errors": [
+        "Receive: cannot call recv while another coroutine is already waiting for the next message"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "TestUser02",
+      "connected": false,
+      "joined": false,
+      "channel": "CANAL LIBRE",
+      "is_transmitting": false,
+      "session_id": "",
+      "audio_chunks_sent": 0,
+      "messages_received": 5,
+      "errors": [
+        "PT Start: cannot call recv while another coroutine is already waiting for the next message"
+      ]
+    },
+    {
+      "id": 3,
+      "username": "TestUser03",
+      "connected": false,
+      "joined": false,
+      "channel": "CANAL LIBRE",
+      "is_transmitting": false,
+      "session_id": "",
+      "audio_chunks_sent": 0,
+      "messages_received": 5,
+      "errors": [
+        "PT Start: cannot call recv while another coroutine is already waiting for the next message"
+      ]
+    },
+    {
+      "id": 4,
+      "username": "TestUser04",
+      "connected": false,
+      "joined": false,
+      "channel": "CANAL LIBRE",
+      "is_transmitting": false,
+      "session_id": "",
+      "audio_chunks_sent": 0,
+      "messages_received": 5,
+      "errors": [
+        "PT Start: cannot call recv while another coroutine is already waiting for the next message"
+      ]
+    },
+    {
+      "id": 5,
+      "username": "TestUser05",
+      "connected": false,
+      "joined": false,
+      "channel": null,
+      "is_transmitting": false,
+      "session_id": null,
+      "audio_chunks_sent": 0,
+      "messages_received": 0,
+      "errors": [
+        "Join: tipo inesperado users_update"
+      ]
+    },
+    {
+      "id": 6,
+      "username": "TestUser06",
+      "connected": false,
+      "joined": false,
+      "channel": null,
+      "is_transmitting": false,
+      "session_id": null,
+      "audio_chunks_sent": 0,
+      "messages_received": 0,
+      "errors": [
+        "Join: tipo inesperado users_update"
+      ]
+    },
+    {
+      "id": 7,
+      "username": "TestUser07",
+      "connected": false,
+      "joined": false,
+      "channel": null,
+      "is_transmitting": false,
+      "session_id": null,
+      "audio_chunks_sent": 0,
+      "messages_received": 0,
+      "errors": [
+        "Join: tipo inesperado users_update"
+      ]
+    },
+    {
+      "id": 8,
+      "username": "TestUser08",
+      "connected": false,
+      "joined": false,
+      "channel": null,
+      "is_transmitting": false,
+      "session_id": null,
+      "audio_chunks_sent": 0,
+      "messages_received": 0,
+      "errors": [
+        "Join: tipo inesperado users_update"
+      ]
+    },
+    {
+      "id": 9,
+      "username": "TestUser09",
+      "connected": false,
+      "joined": false,
+      "channel": null,
+      "is_transmitting": false,
+      "session_id": null,
+      "audio_chunks_sent": 0,
+      "messages_received": 0,
+      "errors": [
+        "Join: tipo inesperado users_update"
+      ]
+    },
+    {
+      "id": 10,
+      "username": "TestUser10",
+      "connected": false,
+      "joined": false,
+      "channel": "CANAL LIBRE",
+      "is_transmitting": false,
+      "session_id": "",
+      "audio_chunks_sent": 0,
+      "messages_received": 5,
+      "errors": [
+        "PT Start: cannot call recv while another coroutine is already waiting for the next message"
+      ]
+    }
+  ],
+  "errors": [],
+  "success": true
+}

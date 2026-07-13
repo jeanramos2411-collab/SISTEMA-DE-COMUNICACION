@@ -29,6 +29,7 @@ type Client struct {
 	deviceID        string
 	mac             string
 	connectedAt     string
+	mu              sync.Mutex  // Mutex para proteger escrituras WebSocket
 }
 
 // Estado global del servidor - similar a las variables globales de Python
@@ -269,7 +270,8 @@ func (s *ServerState) completeJoin(client *Client, channel string) {
 	if _, ok := s.channelMembers[channel]; !ok {
 		s.channelMembers[channel] = make(map[*Client]bool)
 	}
-	s.channelMembers[channel][client] = s.mu.Unlock() == nil
+	s.channelMembers[channel][client] = true
+	s.mu.Unlock()
 
 	// Registrar acceso
 	s.store.RecordDeviceChannelAccess(client.deviceID, channel)
@@ -400,6 +402,9 @@ func (s *ServerState) sendAudioAsync(client *Client, audio []byte) {
 		return
 	}
 
+	client.mu.Lock()
+	defer client.mu.Unlock()
+	
 	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	if err := client.conn.WriteMessage(websocket.BinaryMessage, audio); err != nil {
 		log.Printf("[WS] Error enviando audio a %s: %v", client.sessionID, err)
@@ -418,6 +423,9 @@ func (s *ServerState) sendJSON(client *Client, data map[string]interface{}) {
 		return
 	}
 
+	client.mu.Lock()
+	defer client.mu.Unlock()
+	
 	// Enviar directamente como Python - sin buffering en canales
 	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	if err := client.conn.WriteMessage(websocket.TextMessage, msg); err != nil {
@@ -455,6 +463,9 @@ func (s *ServerState) sendJSONAsync(client *Client, msg []byte) {
 		return
 	}
 
+	client.mu.Lock()
+	defer client.mu.Unlock()
+	
 	client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	if err := client.conn.WriteMessage(websocket.TextMessage, msg); err != nil {
 		log.Printf("[WS] Error en broadcast a %s: %v", client.sessionID, err)
@@ -493,11 +504,13 @@ func (s *ServerState) usersInChannel(channel string) []string {
 }
 
 // isOpen - verifica si la conexión está abierta (como en Python)
+// Nota: gorilla/websocket.Connection tiene un camponet.Conn cerrado internamente
+// Simplemente verificamos que el cliente y la conexión no sean nil
 func (s *ServerState) isOpen(client *Client) bool {
 	if client == nil || client.conn == nil {
 		return false
 	}
-	return client.conn.CloseCode() == 0
+	return true
 }
 
 // CompleteJoin público para cuando se aprueba una solicitud
@@ -536,7 +549,9 @@ func (s *ServerState) KickClient(sessionID string) bool {
 		return false
 	}
 
+	client.mu.Lock()
 	client.conn.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(4000, "Expulsado por administrador"))
+	client.mu.Unlock()
 	return true
 }
 

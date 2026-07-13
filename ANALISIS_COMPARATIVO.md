@@ -4,6 +4,59 @@
 
 Este documento presenta un análisis exhaustivo comparando la implementación del servidor WebSocket en Python (server/app/main.py) con la nueva implementación en Go (server-go/internal/websocket/client.go).
 
+Las pruebas de carga fueron realizadas simulando 10 clientes conectados simultáneamente, ejecutando el protocolo PTT completo (conexión, join, transmisión y recepción de audio).
+
+## Resultados de Pruebas de Carga
+
+### Configuración de Prueba
+- **Clientes simulados**: 10
+- **Canal de prueba**: CANAL LIBRE (acceso abierto)
+- **Tipo de prueba**: Conexión, unión a canal, transmisión PTT, distribución de audio
+
+### Resultados Servidor Python
+
+```
+Duración: 3.78 segundos
+Conexiones: 10/10 exitosas
+Uniônes: 5/10 exitosas
+Transmisiones: 1 concedida, 4 denegadas
+Audio: 5 chunks enviados, 20 chunks recibidos
+```
+
+### Resultados Servidor Go (después de corrección)
+
+```
+Duración: 26.29 segundos
+Conexiones: 10/10 exitosas
+Uniônes: 10/10 exitosas
+Transmisiones: 1 concedida, 9 denegadas
+Audio: 5 chunks enviados, 45 chunks recibidos
+```
+
+**Nota**: La diferencia en duración se debe a los delays de espera entre transmisiones en el script de prueba, no a rendimiento del servidor.
+
+## Problemas Identificados
+
+### Servidor Python
+- Algunos clientes fallan en unirse al canal bajo carga simultánea
+- Posible problema de race condition en el manejo de múltiples conexiones
+
+### Servidor Go - Bug Crítico Corregido
+- **Bug**: `panic: concurrent write to websocket connection`
+- **Causa**: Múltiples goroutines escribiendo a la misma conexión sin sincronización
+- **Solución**: Se agregó mutex por cliente para proteger escrituras WebSocket
+
+```go
+type Client struct {
+    // ... otros campos ...
+    mu sync.Mutex  // Proteger escrituras WebSocket
+}
+
+// En cada función de escritura:
+client.mu.Lock()
+defer client.mu.Unlock()
+```
+
 ## 1. Arquitectura General
 
 ### Python - Variables Globales

@@ -259,13 +259,12 @@ func setGainHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 			}
 		}
 
-		if err := s.SetDefaultPlaybackGain(gain); err != nil {
-			http.Error(w, `{"error":"`+err.Error()+`"}`, 400)
-			return
+		if gain != nil {
+			s.SetPlaybackGain(*gain)
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"playback_gain":%f}`, s.DefaultPlaybackGain())
+		fmt.Fprintf(w, `{"playback_gain":%f}`, s.PlaybackGain())
 	}
 }
 
