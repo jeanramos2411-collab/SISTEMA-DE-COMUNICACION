@@ -1,0 +1,60 @@
+{
+  "test": "10x1x40",
+  "timestamp": "2026-07-14T00:22:38.558096",
+  "duration_seconds": 6.436204195022583,
+  "total_clients": 410,
+  "connected": 410,
+  "joined": 410,
+  "transmitters": {
+    "count": 10,
+    "with_errors": 0,
+    "errors": []
+  },
+  "receivers": {
+    "count": 400,
+    "received_audio": 400,
+    "total_bytes": 38400000
+  },
+  "per_channel": {
+    "LIBRE-1": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-2": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-3": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-4": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-5": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-6": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-7": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-8": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-9": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    },
+    "LIBRE-10": {
+      "rx_with_audio": 40,
+      "total_rx": 40
+    }
+  }
+}
