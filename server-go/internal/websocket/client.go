@@ -17,6 +17,12 @@ const (
 	maxMsgSize   = 1024 * 1024 // 1MB
 )
 
+// writeMsg - estructura para mensajes del canal con tipo
+type writeMsg struct {
+	msgType int
+	data    []byte
+}
+
 // Cliente individual conectado
 type Client struct {
 	conn            *websocket.Conn
@@ -29,7 +35,7 @@ type Client struct {
 	deviceID        string
 	mac             string
 	connectedAt     string
-	writeChan       chan []byte  // Canal para serializar escrituras
+	writeChan       chan writeMsg  // Canal para serializar escrituras
 	doneChan        chan struct{}
 }
 
@@ -61,7 +67,7 @@ func (s *ServerState) HandleConnection(conn *websocket.Conn, ip string) {
 		ip:          ip,
 		mac:         utils.LookupMAC(ip),
 		connectedAt: time.Now().UTC().Format(time.RFC3339),
-		writeChan:   make(chan []byte, 256),
+		writeChan:   make(chan writeMsg, 256),
 		doneChan:    make(chan struct{}),
 	}
 
@@ -419,7 +425,7 @@ func (s *ServerState) writePump(client *Client) {
 				return
 			}
 			client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
-			if err := client.conn.WriteMessage(websocket.BinaryMessage, msg); err != nil {
+			if err := client.conn.WriteMessage(msg.msgType, msg.data); err != nil {
 				log.Printf("[WS] Error en writePump: %v", err)
 				return
 			}
@@ -436,7 +442,7 @@ func (s *ServerState) sendAudioAsync(client *Client, audio []byte) {
 	}
 
 	select {
-	case client.writeChan <- audio:
+	case client.writeChan <- writeMsg{msgType: websocket.BinaryMessage, data: audio}:
 	default:
 		// Canal lleno, ignorar
 	}
@@ -455,7 +461,7 @@ func (s *ServerState) sendJSON(client *Client, data map[string]interface{}) {
 	}
 
 	select {
-	case client.writeChan <- msg:
+	case client.writeChan <- writeMsg{msgType: websocket.TextMessage, data: msg}:
 	default:
 		// Canal lleno
 	}
@@ -492,7 +498,7 @@ func (s *ServerState) sendJSONAsync(client *Client, msg []byte) {
 	}
 
 	select {
-	case client.writeChan <- msg:
+	case client.writeChan <- writeMsg{msgType: websocket.TextMessage, data: msg}:
 	default:
 		// Canal lleno, ignorar
 	}
