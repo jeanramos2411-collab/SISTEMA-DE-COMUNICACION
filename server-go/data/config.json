@@ -37,6 +37,66 @@
       "name": "Logistica",
       "enabled": true,
       "access": "approval"
+    },
+    {
+      "id": "libre-1",
+      "name": "LIBRE-1",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-2",
+      "name": "LIBRE-2",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-3",
+      "name": "LIBRE-3",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-4",
+      "name": "LIBRE-4",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-5",
+      "name": "LIBRE-5",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-6",
+      "name": "LIBRE-6",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-7",
+      "name": "LIBRE-7",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-8",
+      "name": "LIBRE-8",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-9",
+      "name": "LIBRE-9",
+      "enabled": true,
+      "access": "open"
+    },
+    {
+      "id": "libre-10",
+      "name": "LIBRE-10",
+      "enabled": true,
+      "access": "open"
     }
   ],
   "blocked": [],
@@ -77,6 +137,4516 @@
       ],
       "first_seen": "2026-06-15T23:06:19.798403+00:00",
       "last_seen": "2026-06-16T19:39:02.479897+00:00"
+    },
+    "test-0": {
+      "username": "TX-LIBRE-1-0",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-1": {
+      "username": "RX-LIBRE-1-1",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-10": {
+      "username": "RX-LIBRE-1-10",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-100": {
+      "username": "RX-LIBRE-3-100",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-101": {
+      "username": "RX-LIBRE-3-101",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-102": {
+      "username": "RX-LIBRE-3-102",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-103": {
+      "username": "RX-LIBRE-3-103",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-104": {
+      "username": "RX-LIBRE-3-104",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-105": {
+      "username": "RX-LIBRE-3-105",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-106": {
+      "username": "RX-LIBRE-3-106",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-107": {
+      "username": "RX-LIBRE-3-107",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-108": {
+      "username": "RX-LIBRE-3-108",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-109": {
+      "username": "RX-LIBRE-3-109",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-11": {
+      "username": "RX-LIBRE-1-11",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-110": {
+      "username": "RX-LIBRE-3-110",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-111": {
+      "username": "RX-LIBRE-3-111",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-112": {
+      "username": "RX-LIBRE-3-112",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-113": {
+      "username": "RX-LIBRE-3-113",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-114": {
+      "username": "RX-LIBRE-3-114",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-115": {
+      "username": "RX-LIBRE-3-115",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-116": {
+      "username": "RX-LIBRE-3-116",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-117": {
+      "username": "RX-LIBRE-3-117",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-118": {
+      "username": "RX-LIBRE-3-118",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-119": {
+      "username": "RX-LIBRE-3-119",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-12": {
+      "username": "RX-LIBRE-1-12",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-120": {
+      "username": "RX-LIBRE-3-120",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-121": {
+      "username": "RX-LIBRE-3-121",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-122": {
+      "username": "RX-LIBRE-3-122",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-123": {
+      "username": "TX-LIBRE-4-123",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-124": {
+      "username": "RX-LIBRE-4-124",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-125": {
+      "username": "RX-LIBRE-4-125",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-126": {
+      "username": "RX-LIBRE-4-126",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-127": {
+      "username": "RX-LIBRE-4-127",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-128": {
+      "username": "RX-LIBRE-4-128",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-129": {
+      "username": "RX-LIBRE-4-129",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-13": {
+      "username": "RX-LIBRE-1-13",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-130": {
+      "username": "RX-LIBRE-4-130",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-131": {
+      "username": "RX-LIBRE-4-131",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-132": {
+      "username": "RX-LIBRE-4-132",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-133": {
+      "username": "RX-LIBRE-4-133",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-134": {
+      "username": "RX-LIBRE-4-134",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-135": {
+      "username": "RX-LIBRE-4-135",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-136": {
+      "username": "RX-LIBRE-4-136",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-137": {
+      "username": "RX-LIBRE-4-137",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-138": {
+      "username": "RX-LIBRE-4-138",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-139": {
+      "username": "RX-LIBRE-4-139",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-14": {
+      "username": "RX-LIBRE-1-14",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-140": {
+      "username": "RX-LIBRE-4-140",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-141": {
+      "username": "RX-LIBRE-4-141",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-142": {
+      "username": "RX-LIBRE-4-142",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-143": {
+      "username": "RX-LIBRE-4-143",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-144": {
+      "username": "RX-LIBRE-4-144",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-145": {
+      "username": "RX-LIBRE-4-145",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-146": {
+      "username": "RX-LIBRE-4-146",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-147": {
+      "username": "RX-LIBRE-4-147",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-148": {
+      "username": "RX-LIBRE-4-148",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-149": {
+      "username": "RX-LIBRE-4-149",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-15": {
+      "username": "RX-LIBRE-1-15",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-150": {
+      "username": "RX-LIBRE-4-150",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-151": {
+      "username": "RX-LIBRE-4-151",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-152": {
+      "username": "RX-LIBRE-4-152",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-153": {
+      "username": "RX-LIBRE-4-153",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-154": {
+      "username": "RX-LIBRE-4-154",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-155": {
+      "username": "RX-LIBRE-4-155",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-156": {
+      "username": "RX-LIBRE-4-156",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-157": {
+      "username": "RX-LIBRE-4-157",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-158": {
+      "username": "RX-LIBRE-4-158",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-159": {
+      "username": "RX-LIBRE-4-159",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-16": {
+      "username": "RX-LIBRE-1-16",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-160": {
+      "username": "RX-LIBRE-4-160",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-161": {
+      "username": "RX-LIBRE-4-161",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-162": {
+      "username": "RX-LIBRE-4-162",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-163": {
+      "username": "RX-LIBRE-4-163",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-4"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-164": {
+      "username": "TX-LIBRE-5-164",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-165": {
+      "username": "RX-LIBRE-5-165",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-166": {
+      "username": "RX-LIBRE-5-166",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-167": {
+      "username": "RX-LIBRE-5-167",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-168": {
+      "username": "RX-LIBRE-5-168",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-169": {
+      "username": "RX-LIBRE-5-169",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-17": {
+      "username": "RX-LIBRE-1-17",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-170": {
+      "username": "RX-LIBRE-5-170",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-171": {
+      "username": "RX-LIBRE-5-171",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-172": {
+      "username": "RX-LIBRE-5-172",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-173": {
+      "username": "RX-LIBRE-5-173",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-174": {
+      "username": "RX-LIBRE-5-174",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-175": {
+      "username": "RX-LIBRE-5-175",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-176": {
+      "username": "RX-LIBRE-5-176",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-177": {
+      "username": "RX-LIBRE-5-177",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-178": {
+      "username": "RX-LIBRE-5-178",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-179": {
+      "username": "RX-LIBRE-5-179",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-18": {
+      "username": "RX-LIBRE-1-18",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-180": {
+      "username": "RX-LIBRE-5-180",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-181": {
+      "username": "RX-LIBRE-5-181",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-182": {
+      "username": "RX-LIBRE-5-182",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-183": {
+      "username": "RX-LIBRE-5-183",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-184": {
+      "username": "RX-LIBRE-5-184",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-185": {
+      "username": "RX-LIBRE-5-185",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-186": {
+      "username": "RX-LIBRE-5-186",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-187": {
+      "username": "RX-LIBRE-5-187",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-188": {
+      "username": "RX-LIBRE-5-188",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-189": {
+      "username": "RX-LIBRE-5-189",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-19": {
+      "username": "RX-LIBRE-1-19",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-190": {
+      "username": "RX-LIBRE-5-190",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-191": {
+      "username": "RX-LIBRE-5-191",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-192": {
+      "username": "RX-LIBRE-5-192",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-193": {
+      "username": "RX-LIBRE-5-193",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-194": {
+      "username": "RX-LIBRE-5-194",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-195": {
+      "username": "RX-LIBRE-5-195",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-196": {
+      "username": "RX-LIBRE-5-196",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-197": {
+      "username": "RX-LIBRE-5-197",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-198": {
+      "username": "RX-LIBRE-5-198",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-199": {
+      "username": "RX-LIBRE-5-199",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-2": {
+      "username": "RX-LIBRE-1-2",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-20": {
+      "username": "RX-LIBRE-1-20",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-200": {
+      "username": "RX-LIBRE-5-200",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-201": {
+      "username": "RX-LIBRE-5-201",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-202": {
+      "username": "RX-LIBRE-5-202",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-203": {
+      "username": "RX-LIBRE-5-203",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-204": {
+      "username": "RX-LIBRE-5-204",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-5"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-205": {
+      "username": "TX-LIBRE-6-205",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-206": {
+      "username": "RX-LIBRE-6-206",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-207": {
+      "username": "RX-LIBRE-6-207",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-208": {
+      "username": "RX-LIBRE-6-208",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-209": {
+      "username": "RX-LIBRE-6-209",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-21": {
+      "username": "RX-LIBRE-1-21",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-210": {
+      "username": "RX-LIBRE-6-210",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-211": {
+      "username": "RX-LIBRE-6-211",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-212": {
+      "username": "RX-LIBRE-6-212",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-213": {
+      "username": "RX-LIBRE-6-213",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-214": {
+      "username": "RX-LIBRE-6-214",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-215": {
+      "username": "RX-LIBRE-6-215",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-216": {
+      "username": "RX-LIBRE-6-216",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-217": {
+      "username": "RX-LIBRE-6-217",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-218": {
+      "username": "RX-LIBRE-6-218",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-219": {
+      "username": "RX-LIBRE-6-219",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-22": {
+      "username": "RX-LIBRE-1-22",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-220": {
+      "username": "RX-LIBRE-6-220",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-221": {
+      "username": "RX-LIBRE-6-221",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-222": {
+      "username": "RX-LIBRE-6-222",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-223": {
+      "username": "RX-LIBRE-6-223",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-224": {
+      "username": "RX-LIBRE-6-224",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-225": {
+      "username": "RX-LIBRE-6-225",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-226": {
+      "username": "RX-LIBRE-6-226",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-227": {
+      "username": "RX-LIBRE-6-227",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-228": {
+      "username": "RX-LIBRE-6-228",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-229": {
+      "username": "RX-LIBRE-6-229",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-23": {
+      "username": "RX-LIBRE-1-23",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-230": {
+      "username": "RX-LIBRE-6-230",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-231": {
+      "username": "RX-LIBRE-6-231",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-232": {
+      "username": "RX-LIBRE-6-232",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-233": {
+      "username": "RX-LIBRE-6-233",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-234": {
+      "username": "RX-LIBRE-6-234",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-235": {
+      "username": "RX-LIBRE-6-235",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-236": {
+      "username": "RX-LIBRE-6-236",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-237": {
+      "username": "RX-LIBRE-6-237",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-238": {
+      "username": "RX-LIBRE-6-238",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-239": {
+      "username": "RX-LIBRE-6-239",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-24": {
+      "username": "RX-LIBRE-1-24",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-240": {
+      "username": "RX-LIBRE-6-240",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-241": {
+      "username": "RX-LIBRE-6-241",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-242": {
+      "username": "RX-LIBRE-6-242",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-243": {
+      "username": "RX-LIBRE-6-243",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-244": {
+      "username": "RX-LIBRE-6-244",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-245": {
+      "username": "RX-LIBRE-6-245",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-6"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-246": {
+      "username": "TX-LIBRE-7-246",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-247": {
+      "username": "RX-LIBRE-7-247",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-248": {
+      "username": "RX-LIBRE-7-248",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-249": {
+      "username": "RX-LIBRE-7-249",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-25": {
+      "username": "RX-LIBRE-1-25",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-250": {
+      "username": "RX-LIBRE-7-250",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-251": {
+      "username": "RX-LIBRE-7-251",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-252": {
+      "username": "RX-LIBRE-7-252",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-253": {
+      "username": "RX-LIBRE-7-253",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-254": {
+      "username": "RX-LIBRE-7-254",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-255": {
+      "username": "RX-LIBRE-7-255",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-256": {
+      "username": "RX-LIBRE-7-256",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-257": {
+      "username": "RX-LIBRE-7-257",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-258": {
+      "username": "RX-LIBRE-7-258",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-259": {
+      "username": "RX-LIBRE-7-259",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-26": {
+      "username": "RX-LIBRE-1-26",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-260": {
+      "username": "RX-LIBRE-7-260",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-261": {
+      "username": "RX-LIBRE-7-261",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-262": {
+      "username": "RX-LIBRE-7-262",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-263": {
+      "username": "RX-LIBRE-7-263",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-264": {
+      "username": "RX-LIBRE-7-264",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-265": {
+      "username": "RX-LIBRE-7-265",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-266": {
+      "username": "RX-LIBRE-7-266",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-267": {
+      "username": "RX-LIBRE-7-267",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-268": {
+      "username": "RX-LIBRE-7-268",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-269": {
+      "username": "RX-LIBRE-7-269",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-27": {
+      "username": "RX-LIBRE-1-27",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-270": {
+      "username": "RX-LIBRE-7-270",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-271": {
+      "username": "RX-LIBRE-7-271",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-272": {
+      "username": "RX-LIBRE-7-272",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-273": {
+      "username": "RX-LIBRE-7-273",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-274": {
+      "username": "RX-LIBRE-7-274",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-275": {
+      "username": "RX-LIBRE-7-275",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-276": {
+      "username": "RX-LIBRE-7-276",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-277": {
+      "username": "RX-LIBRE-7-277",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-278": {
+      "username": "RX-LIBRE-7-278",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-279": {
+      "username": "RX-LIBRE-7-279",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-28": {
+      "username": "RX-LIBRE-1-28",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-280": {
+      "username": "RX-LIBRE-7-280",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-281": {
+      "username": "RX-LIBRE-7-281",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-282": {
+      "username": "RX-LIBRE-7-282",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-283": {
+      "username": "RX-LIBRE-7-283",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-284": {
+      "username": "RX-LIBRE-7-284",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-285": {
+      "username": "RX-LIBRE-7-285",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-286": {
+      "username": "RX-LIBRE-7-286",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-7"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-287": {
+      "username": "TX-LIBRE-8-287",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-288": {
+      "username": "RX-LIBRE-8-288",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-289": {
+      "username": "RX-LIBRE-8-289",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-29": {
+      "username": "RX-LIBRE-1-29",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-290": {
+      "username": "RX-LIBRE-8-290",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-291": {
+      "username": "RX-LIBRE-8-291",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-292": {
+      "username": "RX-LIBRE-8-292",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-293": {
+      "username": "RX-LIBRE-8-293",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-294": {
+      "username": "RX-LIBRE-8-294",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-295": {
+      "username": "RX-LIBRE-8-295",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-296": {
+      "username": "RX-LIBRE-8-296",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-297": {
+      "username": "RX-LIBRE-8-297",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-298": {
+      "username": "RX-LIBRE-8-298",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-299": {
+      "username": "RX-LIBRE-8-299",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-3": {
+      "username": "RX-LIBRE-1-3",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-30": {
+      "username": "RX-LIBRE-1-30",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-300": {
+      "username": "RX-LIBRE-8-300",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-301": {
+      "username": "RX-LIBRE-8-301",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-302": {
+      "username": "RX-LIBRE-8-302",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-303": {
+      "username": "RX-LIBRE-8-303",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-304": {
+      "username": "RX-LIBRE-8-304",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-305": {
+      "username": "RX-LIBRE-8-305",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-306": {
+      "username": "RX-LIBRE-8-306",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-307": {
+      "username": "RX-LIBRE-8-307",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-308": {
+      "username": "RX-LIBRE-8-308",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-309": {
+      "username": "RX-LIBRE-8-309",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-31": {
+      "username": "RX-LIBRE-1-31",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-310": {
+      "username": "RX-LIBRE-8-310",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-311": {
+      "username": "RX-LIBRE-8-311",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-312": {
+      "username": "RX-LIBRE-8-312",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-313": {
+      "username": "RX-LIBRE-8-313",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-314": {
+      "username": "RX-LIBRE-8-314",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-315": {
+      "username": "RX-LIBRE-8-315",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-316": {
+      "username": "RX-LIBRE-8-316",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-317": {
+      "username": "RX-LIBRE-8-317",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-318": {
+      "username": "RX-LIBRE-8-318",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-319": {
+      "username": "RX-LIBRE-8-319",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-32": {
+      "username": "RX-LIBRE-1-32",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-320": {
+      "username": "RX-LIBRE-8-320",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-321": {
+      "username": "RX-LIBRE-8-321",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-322": {
+      "username": "RX-LIBRE-8-322",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-323": {
+      "username": "RX-LIBRE-8-323",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-324": {
+      "username": "RX-LIBRE-8-324",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-325": {
+      "username": "RX-LIBRE-8-325",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-326": {
+      "username": "RX-LIBRE-8-326",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-327": {
+      "username": "RX-LIBRE-8-327",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-8"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-328": {
+      "username": "TX-LIBRE-9-328",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-329": {
+      "username": "RX-LIBRE-9-329",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-33": {
+      "username": "RX-LIBRE-1-33",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-330": {
+      "username": "RX-LIBRE-9-330",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-331": {
+      "username": "RX-LIBRE-9-331",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-332": {
+      "username": "RX-LIBRE-9-332",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-333": {
+      "username": "RX-LIBRE-9-333",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-334": {
+      "username": "RX-LIBRE-9-334",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-335": {
+      "username": "RX-LIBRE-9-335",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-336": {
+      "username": "RX-LIBRE-9-336",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-337": {
+      "username": "RX-LIBRE-9-337",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-338": {
+      "username": "RX-LIBRE-9-338",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-339": {
+      "username": "RX-LIBRE-9-339",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-34": {
+      "username": "RX-LIBRE-1-34",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-340": {
+      "username": "RX-LIBRE-9-340",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-341": {
+      "username": "RX-LIBRE-9-341",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-342": {
+      "username": "RX-LIBRE-9-342",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-343": {
+      "username": "RX-LIBRE-9-343",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-344": {
+      "username": "RX-LIBRE-9-344",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-345": {
+      "username": "RX-LIBRE-9-345",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-346": {
+      "username": "RX-LIBRE-9-346",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-347": {
+      "username": "RX-LIBRE-9-347",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-348": {
+      "username": "RX-LIBRE-9-348",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-349": {
+      "username": "RX-LIBRE-9-349",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-35": {
+      "username": "RX-LIBRE-1-35",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-350": {
+      "username": "RX-LIBRE-9-350",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-351": {
+      "username": "RX-LIBRE-9-351",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-352": {
+      "username": "RX-LIBRE-9-352",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-353": {
+      "username": "RX-LIBRE-9-353",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-354": {
+      "username": "RX-LIBRE-9-354",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-355": {
+      "username": "RX-LIBRE-9-355",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-356": {
+      "username": "RX-LIBRE-9-356",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-357": {
+      "username": "RX-LIBRE-9-357",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-358": {
+      "username": "RX-LIBRE-9-358",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-359": {
+      "username": "RX-LIBRE-9-359",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-36": {
+      "username": "RX-LIBRE-1-36",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-360": {
+      "username": "RX-LIBRE-9-360",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-361": {
+      "username": "RX-LIBRE-9-361",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-362": {
+      "username": "RX-LIBRE-9-362",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-363": {
+      "username": "RX-LIBRE-9-363",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-364": {
+      "username": "RX-LIBRE-9-364",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-365": {
+      "username": "RX-LIBRE-9-365",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-366": {
+      "username": "RX-LIBRE-9-366",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-367": {
+      "username": "RX-LIBRE-9-367",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-368": {
+      "username": "RX-LIBRE-9-368",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-9"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-369": {
+      "username": "TX-LIBRE-10-369",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-37": {
+      "username": "RX-LIBRE-1-37",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-370": {
+      "username": "RX-LIBRE-10-370",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-371": {
+      "username": "RX-LIBRE-10-371",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-372": {
+      "username": "RX-LIBRE-10-372",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-373": {
+      "username": "RX-LIBRE-10-373",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-374": {
+      "username": "RX-LIBRE-10-374",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-375": {
+      "username": "RX-LIBRE-10-375",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-376": {
+      "username": "RX-LIBRE-10-376",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-377": {
+      "username": "RX-LIBRE-10-377",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-378": {
+      "username": "RX-LIBRE-10-378",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-379": {
+      "username": "RX-LIBRE-10-379",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-38": {
+      "username": "RX-LIBRE-1-38",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-380": {
+      "username": "RX-LIBRE-10-380",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-381": {
+      "username": "RX-LIBRE-10-381",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-382": {
+      "username": "RX-LIBRE-10-382",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-383": {
+      "username": "RX-LIBRE-10-383",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-384": {
+      "username": "RX-LIBRE-10-384",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-385": {
+      "username": "RX-LIBRE-10-385",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-386": {
+      "username": "RX-LIBRE-10-386",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-387": {
+      "username": "RX-LIBRE-10-387",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-388": {
+      "username": "RX-LIBRE-10-388",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-389": {
+      "username": "RX-LIBRE-10-389",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-39": {
+      "username": "RX-LIBRE-1-39",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-390": {
+      "username": "RX-LIBRE-10-390",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-391": {
+      "username": "RX-LIBRE-10-391",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-392": {
+      "username": "RX-LIBRE-10-392",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-393": {
+      "username": "RX-LIBRE-10-393",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-394": {
+      "username": "RX-LIBRE-10-394",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-395": {
+      "username": "RX-LIBRE-10-395",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-396": {
+      "username": "RX-LIBRE-10-396",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-397": {
+      "username": "RX-LIBRE-10-397",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-398": {
+      "username": "RX-LIBRE-10-398",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-399": {
+      "username": "RX-LIBRE-10-399",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-4": {
+      "username": "RX-LIBRE-1-4",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-40": {
+      "username": "RX-LIBRE-1-40",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-400": {
+      "username": "RX-LIBRE-10-400",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-401": {
+      "username": "RX-LIBRE-10-401",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-402": {
+      "username": "RX-LIBRE-10-402",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-403": {
+      "username": "RX-LIBRE-10-403",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-404": {
+      "username": "RX-LIBRE-10-404",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-405": {
+      "username": "RX-LIBRE-10-405",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-406": {
+      "username": "RX-LIBRE-10-406",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-407": {
+      "username": "RX-LIBRE-10-407",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-408": {
+      "username": "RX-LIBRE-10-408",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-409": {
+      "username": "RX-LIBRE-10-409",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-10"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-41": {
+      "username": "TX-LIBRE-2-41",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-42": {
+      "username": "RX-LIBRE-2-42",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-43": {
+      "username": "RX-LIBRE-2-43",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-44": {
+      "username": "RX-LIBRE-2-44",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-45": {
+      "username": "RX-LIBRE-2-45",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-46": {
+      "username": "RX-LIBRE-2-46",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-47": {
+      "username": "RX-LIBRE-2-47",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-48": {
+      "username": "RX-LIBRE-2-48",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-49": {
+      "username": "RX-LIBRE-2-49",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-5": {
+      "username": "RX-LIBRE-1-5",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-50": {
+      "username": "RX-LIBRE-2-50",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-51": {
+      "username": "RX-LIBRE-2-51",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-52": {
+      "username": "RX-LIBRE-2-52",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-53": {
+      "username": "RX-LIBRE-2-53",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-54": {
+      "username": "RX-LIBRE-2-54",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-55": {
+      "username": "RX-LIBRE-2-55",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-56": {
+      "username": "RX-LIBRE-2-56",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-57": {
+      "username": "RX-LIBRE-2-57",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-58": {
+      "username": "RX-LIBRE-2-58",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-59": {
+      "username": "RX-LIBRE-2-59",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-6": {
+      "username": "RX-LIBRE-1-6",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-60": {
+      "username": "RX-LIBRE-2-60",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-61": {
+      "username": "RX-LIBRE-2-61",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-62": {
+      "username": "RX-LIBRE-2-62",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-63": {
+      "username": "RX-LIBRE-2-63",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-64": {
+      "username": "RX-LIBRE-2-64",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-65": {
+      "username": "RX-LIBRE-2-65",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-66": {
+      "username": "RX-LIBRE-2-66",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-67": {
+      "username": "RX-LIBRE-2-67",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-68": {
+      "username": "RX-LIBRE-2-68",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-69": {
+      "username": "RX-LIBRE-2-69",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-7": {
+      "username": "RX-LIBRE-1-7",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-70": {
+      "username": "RX-LIBRE-2-70",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-71": {
+      "username": "RX-LIBRE-2-71",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-72": {
+      "username": "RX-LIBRE-2-72",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-73": {
+      "username": "RX-LIBRE-2-73",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-74": {
+      "username": "RX-LIBRE-2-74",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-75": {
+      "username": "RX-LIBRE-2-75",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-76": {
+      "username": "RX-LIBRE-2-76",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-77": {
+      "username": "RX-LIBRE-2-77",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-78": {
+      "username": "RX-LIBRE-2-78",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-79": {
+      "username": "RX-LIBRE-2-79",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-8": {
+      "username": "RX-LIBRE-1-8",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-80": {
+      "username": "RX-LIBRE-2-80",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-81": {
+      "username": "RX-LIBRE-2-81",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-2"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-82": {
+      "username": "TX-LIBRE-3-82",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-83": {
+      "username": "RX-LIBRE-3-83",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-84": {
+      "username": "RX-LIBRE-3-84",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-85": {
+      "username": "RX-LIBRE-3-85",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-86": {
+      "username": "RX-LIBRE-3-86",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-87": {
+      "username": "RX-LIBRE-3-87",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-88": {
+      "username": "RX-LIBRE-3-88",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-89": {
+      "username": "RX-LIBRE-3-89",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-9": {
+      "username": "RX-LIBRE-1-9",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-1"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-90": {
+      "username": "RX-LIBRE-3-90",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-91": {
+      "username": "RX-LIBRE-3-91",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-92": {
+      "username": "RX-LIBRE-3-92",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-93": {
+      "username": "RX-LIBRE-3-93",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-94": {
+      "username": "RX-LIBRE-3-94",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-95": {
+      "username": "RX-LIBRE-3-95",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-96": {
+      "username": "RX-LIBRE-3-96",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-97": {
+      "username": "RX-LIBRE-3-97",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-98": {
+      "username": "RX-LIBRE-3-98",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
+    },
+    "test-99": {
+      "username": "RX-LIBRE-3-99",
+      "mac": "",
+      "ip_last": "127.0.0.1",
+      "playback_gain": null,
+      "approved_channels": [
+        "libre-3"
+      ],
+      "first_seen": "2026-07-14T00:32:08Z",
+      "last_seen": "2026-07-14T00:32:08Z"
     },
     "test-device-1": {
       "username": "TestUser01",
@@ -189,5 +4759,5 @@
       "last_seen": "2026-07-13T23:28:24Z"
     }
   },
-  "pending_approvals": null
+  "pending_approvals": []
 }

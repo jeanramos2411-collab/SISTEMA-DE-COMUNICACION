@@ -232,9 +232,24 @@ func statusHandler(s *store.Store, state *ws.ServerState) http.HandlerFunc {
 		}
 
 		clients := state.GetClientsSnapshot()
+		
+		// Obtener información del store igual que Python
+		config := map[string]interface{}{
+			"playback_gain":      s.PlaybackGain(),
+			"channels":           s.GetChannels(),
+			"blocked":            s.GetBlocked(),
+			"devices":            s.ListDevices(),
+			"pending_approvals": s.GetPendingApprovals(),
+			"groups":             s.GetGroups(),
+		}
+
+		response := map[string]interface{}{
+			"clients": clients,
+			"config":  config,
+		}
 
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"ok":true,"clients":%s}`, toJSON(clients))
+		json.NewEncoder(w).Encode(response)
 	}
 }
 

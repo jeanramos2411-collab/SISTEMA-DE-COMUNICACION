@@ -907,6 +907,106 @@ func (s *Store) VerifyPassword(password string) bool {
 	return password == s.config.AdminPassword
 }
 
+// GetChannels - devuelve lista de canales
+func (s *Store) GetChannels() []Channel {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.config.Channels
+}
+
+// GetBlocked - devuelve lista de bloqueos
+func (s *Store) GetBlocked() []BlockEntry {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.config.Blocked
+}
+
+// GetPendingApprovals - devuelve solicitudes pendientes
+func (s *Store) GetPendingApprovals() []PendingApproval {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.config.PendingApprovals
+}
+
+// GroupInfo - estructura para información de grupo
+type GroupInfo struct {
+	ChannelID   string       `json:"channel_id"`
+	ChannelName string       `json:"channel_name"`
+	Access      string       `json:"access"`
+	Members     []DeviceInfo `json:"members"`
+	Online      []OnlineInfo `json:"online"`
+}
+
+// OnlineInfo - información de cliente en línea
+type OnlineInfo struct {
+	SessionID string `json:"session_id"`
+	Username  string `json:"username"`
+	IP       string `json:"ip"`
+}
+
+// DevicesByChannel - agrupa dispositivos por canal
+func (s *Store) DevicesByChannel() map[string][]DeviceInfo {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	result := make(map[string][]DeviceInfo)
+	for _, ch := range s.config.Channels {
+		result[ch.ID] = []DeviceInfo{}
+	}
+
+	for deviceID, device := range s.config.Devices {
+		for _, approvedCh := range device.ApprovedChans {
+			if _, ok := result[approvedCh]; ok {
+				info := DeviceInfo{
+					DeviceID: deviceID,
+					Username: device.Username,
+					IPLast:   device.IPLast,
+					MAC:      device.MAC,
+				}
+				result[approvedCh] = append(result[approvedCh], info)
+			}
+		}
+	}
+
+	return result
+}
+
+// GetGroups - devuelve grupos con información de dispositivos y acceso
+func (s *Store) GetGroups() []GroupInfo {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	groups := []GroupInfo{}
+	for _, ch := range s.config.Channels {
+		group := GroupInfo{
+			ChannelID:   ch.ID,
+			ChannelName: ch.Name,
+			Access:      ch.Access,
+			Members:     []DeviceInfo{},
+		}
+
+		// Buscar dispositivos aprobados para este canal
+		for deviceID, device := range s.config.Devices {
+			for _, approvedCh := range device.ApprovedChans {
+				if approvedCh == ch.ID {
+					info := DeviceInfo{
+						DeviceID: deviceID,
+						Username: device.Username,
+						IPLast:   device.IPLast,
+						MAC:      device.MAC,
+					}
+					group.Members = append(group.Members, info)
+					break
+				}
+			}
+		}
+
+		groups = append(groups, group)
+	}
+
+	return groups
+}
+
 func nowISO() string {
 	return time.Now().UTC().Format(time.RFC3339)
 }
