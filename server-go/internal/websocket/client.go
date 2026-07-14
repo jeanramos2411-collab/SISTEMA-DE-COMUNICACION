@@ -81,9 +81,10 @@ func (s *ServerState) HandleConnection(conn *websocket.Conn, ip string) {
 	go s.writePump(client)
 
 	// Loop principal - similar a: async for message in ws:
-	// Configurar ping/pong como hace Python
 	conn.SetReadLimit(maxMsgSize)
-	conn.SetPingHandler(func(appData string) error {
+	// Configurar handlers para ping/pong - extiende deadlines para mantener conexión
+	conn.SetPongHandler(func(appData string) error {
+		// Extender deadline cuando recibimos pong del cliente (respuesta a nuestros pings)
 		conn.SetReadDeadline(time.Now().Add(pingTimeout))
 		return nil
 	})
@@ -416,8 +417,12 @@ func (s *ServerState) handleAudio(sender *Client, audio []byte) {
 	}
 }
 
-// writePump - pump de escritura para serializar mensajes
+// writePump - pump de escritura para serializar mensajes y mantener conexión viva
 func (s *ServerState) writePump(client *Client) {
+	// Timer para enviar pings periódicos
+	pingTicker := time.NewTicker(pingInterval)
+	defer pingTicker.Stop()
+
 	for {
 		select {
 		case msg, ok := <-client.writeChan:
@@ -427,6 +432,13 @@ func (s *ServerState) writePump(client *Client) {
 			client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 			if err := client.conn.WriteMessage(msg.msgType, msg.data); err != nil {
 				log.Printf("[WS] Error en writePump: %v", err)
+				return
+			}
+		case <-pingTicker.C:
+			// Enviar ping periódicamente para mantener conexión viva
+			client.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
+			if err := client.conn.WriteMessage(websocket.PingMessage, nil); err != nil {
+				log.Printf("[WS] Error enviando ping: %v", err)
 				return
 			}
 		case <-client.doneChan:
